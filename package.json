@@ -1,0 +1,28 @@
+{
+  "name": "Project_Two",
+  "version": "1.0.0",
+  "description": "A productivity application that allows the user to set up a family account, create todo lists for each family memeber and send their lists to them via email or sms message. This app is designed to keep the whole family up-to-date and staying productive.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wandrew8/Project_Two.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wandrew8/Project_Two/issues"
+  },
+  "homepage": "https://github.com/wandrew8/Project_Two#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.19.5"
+  }
+}
