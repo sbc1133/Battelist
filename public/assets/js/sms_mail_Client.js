@@ -1,8 +1,9 @@
 
+require('dotenv').config();
 const userInfo = require('./assignedUser');
-var accountSid = 'ACfb1cb29f8a8b6effc61693f15ba47bb3'; // Your Account SID from www.twilio.com/console
-var authToken = '05347177cf275af70aa92e48f62c3f35';   // Your Auth Token from www.twilio.com/console
-
+var accountSid = process.env.TWILIO_SID; // Your Account SID from www.twilio.com/console
+var authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
+console.log(accountSid);
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
 var mailer = require('nodemailer');

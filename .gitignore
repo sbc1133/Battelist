@@ -1,0 +1,2 @@
+# Don't track env files containing passwords
+.env
