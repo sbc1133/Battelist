@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../public/assets/css/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=BenchNine:700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../public/assets/css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- --------------------------------------------------------HOME PAGE AND LOGIN---------------------------------------------------------------------------- -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="main-title-page" class="col-xs-12 col-s-12 col-md-12 col-lg-12 col-xl-6">
+        <div class="logo-container">
+          <span class="word word1"> BattleList </span>
+        </div>
+        <div class="word_split wrapper">
+          <span class="word word2">Keeping</span>
+          <span class="word word3">Your</span>
+          <span class="word word4">Team</span>
+          <span class="word word5">On Task</span>
+          <span class="word word6">And </span>
+          <span class="word word7">Productive</span>
+        </div>
+
+      </div>
+      <!----------------------------- SIGN IN FORM ----------------------------------->
+
+      <div id="sign-in-form-container" class="z-depth-1 col-xs-12 col-s-12 col-md-12 col-lg-12 col-xl-6">
+        <form class="rounded z-depth-1 sign-in text-center border bg-white border-light p-5">
+
+          <p class="sign-in-text h4 mb-4">Sign in</p>
+
+          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+          <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+
+          <button class="btn btn-info btn-block my-4 btn-info" type="submit">Sign in</button>
+
+          <p>New User?<a id="signUpLink"> Create an Account</a></p>
+        </form>
+        <button id="development-link">Link for development testing</button>
+      </div>
+    </div>
+  </div>
+
+  <!---------- Scroll Down Arrow Animation - Shown on smaller screens (600px or less)----------->
+
+  <section id="scrollArrow" class="demo">
+    <a id="scroll-down" href="#sign-in-form-container"><span></span></a>
+  </section>
+
+  <!-- -----------------------------------------------------NEW ACCOUNT SIGN UP FORM (MODAL) ---------------------------------------------------------------- -->
+
+
+  <div class="modal fade" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" data-backdrop="false">
+
+    <!-- Change class .modal-sm to change the size of the modal -->
+    <div class="modal-dialog .modal-lg" role="document">
+
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Create a New Account</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info btn-sm">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -----------------------------------------------------NEW ACCOUNT MODAL BACKGROUND ---------------------------------------------------------------- -->
+
+  <div id="modal-background"></div>
+
+  <!-- ---------------------------------------------------------- MAIN CONTENT PAGE --------------------------------------------------------------------- -->
+
+  <div id="main-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark header-background">
+      <div class="navbar fixed-top navbar-expand-sm navbar-dark white header">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="nav-logo"><i class="fas fa-bars fa-1x"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        </div>
+        <h1>BattleList</h1>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- TASK LIST MAIN CONTAINER -->
+        <div id="lists-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
+
+          <!--------- ROW ONE - CARDS 1 AND 2 ------------->
+          <div class="row">
+
+            <!-- Columns inside main task list container -->
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD ONE ----------------------------->
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>Michelle</h2>
+                </div>
+                <div id="list-items">
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">5</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">6</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD TWO ----------------------------->
+
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>Shivali</h2>
+                </div>
+                <div>
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+          </div>
+
+          <!-- ROW TWO - CARDS 3 AND 4 -->
+          <div class="row">
+
+            <!-- Columns inside main task list container -->
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD THREE ----------------------------->
+
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>Josh</h2>
+                </div>
+                <div>
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD FOUR ----------------------------->
+
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>Andrew</h2>
+                </div>
+                <div>
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+          </div>
+
+          <!-- ROW THREE - CARDS 5 AND 6 -->
+          <div class="row">
+
+            <!-- Columns inside main task list container -->
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD FIVE ----------------------------->
+
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>Kelsey</h2>
+                </div>
+                <div>
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+            <!------------------- TASK LIST CARD SIX ----------------------------->
+
+            <div class="col-xs-12 col-sm-12 col-md">
+              <div class="card task-list">
+                <div class="text-center card-header success-color white-text">
+                  <h2>John</h2>
+                </div>
+                <div>
+                  <ol class="list-group">
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">1</span>
+                      <span>Walk the dog</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">2</span>
+                      <span>Do the laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">3</span>
+                      <span>Fold laundry</span>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="md-v-line"></div><span class="badge badge-info badge-pill mr-4">4</span>
+                      <span>Wash car</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <!-- Side New Task Bar -->
+      <div id="sidebar" class="card bg-primary col-xs-0 col-sm-0 col-md-0 col-lg-3 col-xl-3">
+        <h2>Add New Task</h2>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+<script src="../../public/assets/js/app.js"></script>
+
+</html>
