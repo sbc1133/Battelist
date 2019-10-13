@@ -26,10 +26,11 @@ var client = new twilio(accountSid, authToken);
 console.log(userInfo.UserDetails);
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
     auth: {
         type: "OAuth2",
-        user: 'code2soul@gmail.com',
+        user: 'shivalibhalla@gmail.com',
         clientId: process.env.OAUTH_CLIENT_ID,
         clientSecret: process.env.OAUTH_SECRET_KEY,
         refreshToken: process.env.OAUTH_REFRESH_TOKEN,
@@ -50,7 +51,7 @@ function sendMsg(name, phone, email, tasks) {
             from: '+12063395277'
         }
         var emailObj = {
-            from: 'code2soul@gmail.com',
+            from: 'shivalibhalla@gmail.com',
             to: email,
             subject: msgStr,
             text: taskStr
@@ -62,7 +63,8 @@ function sendMsg(name, phone, email, tasks) {
 
 sendMsg(userInfo.UserDetails.name, userInfo.UserDetails.phoneNumber, userInfo.UserDetails.email, userInfo.UserDetails.tasklist).then(function (result) {
 
-    client.messages.create(result[0]).then((message) => console.log(message.sid));
+    client.messages.create(result[0])
+    .then((message) => console.log(message.sid));
 
     transporter.sendMail(result[1], function (error, info) {
         if (error) {
