@@ -1,10 +1,9 @@
 
-
 var userDetails = {
-    name: 'Shivali',
-    phoneNumber:'+14259485822',
-    email:'shivalibhalla@gmail.com',
-    tasklist:["do laundry","do dishes","do homework"]
+    name: 'Michelle Santiago',
+    phoneNumber:'+12064769484',
+    email:'msantiago2222@yahoo.com',
+    tasklist:["be awesome ","be you ","lets rock"]
 }
 
 exports.UserDetails = userDetails
