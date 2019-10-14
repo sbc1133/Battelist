@@ -1,4 +1,5 @@
 
+
 var userDetails = {
     name: 'shivali',
     phoneNumber:'+14255536595',
@@ -6,4 +7,4 @@ var userDetails = {
     tasklist:["be awesome ","be you ","lets rock"]
 }
 
-exports.UserDetails = userDetails
+module.exports = userDetails
