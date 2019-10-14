@@ -33,7 +33,7 @@ app.set("view engine", "handlebars");
 //  ROUTES
 // ================================================================================
 
-require("./controllers/household_api_routes.js")(app);
+require("./controllers/assignee_api_routes.js")(app);
 require("./controllers/html_routes.js")(app);
 require("./controllers/task_api_routes.js")(app);
 require("./controllers/user_api_routes.js")(app);
