@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
           }
         },
         phoneNumber: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.STRING,
 
         },
         email: {
@@ -19,7 +19,16 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
+
       });
+
+      User.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        User.hasMany(models.Task, {
+          onDelete: "cascade"
+        });
+      };
       return User;
     
 };
