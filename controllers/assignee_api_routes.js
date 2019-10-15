@@ -14,7 +14,7 @@ module.exports = function(app) {
     //get all assignees
     app.get("/api/assignee", function(req, res) {
       // Add sequelize code to find all tasks, and return them to the user with res.json
-      db.Assignee.findAll().then(function(dbAssignee){
+      db.Assignee.findAll({include:[db.Task]}).then(function(dbAssignee){
         res.json(dbAssignee)
       })
     
