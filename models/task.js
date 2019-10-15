@@ -48,7 +48,23 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
         }
       });
+
+      Task.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Task.belongsTo(models.User, {
+          onDelete: "cascade"
+        });
+
+        Task.belongsTo(models.Assignee,{
+          onDelete: "cascade"
+        })
+      };
+
+    
       return Task;
+
+
     };
 
 

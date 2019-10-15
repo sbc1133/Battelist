@@ -4,7 +4,7 @@
 
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var db = require("./models");
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -33,7 +33,7 @@ app.set("view engine", "handlebars");
 //  ROUTES
 // ================================================================================
 
-require("./controllers/household_api_routes.js")(app);
+require("./controllers/assignee_api_routes.js")(app);
 require("./controllers/html_routes.js")(app);
 require("./controllers/task_api_routes.js")(app);
 require("./controllers/user_api_routes.js")(app);
@@ -42,7 +42,7 @@ require("./controllers/user_api_routes.js")(app);
 //  SYNC SEQUELIZE MODELS AND START EXPRESS APP
 // =============================================================================
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
