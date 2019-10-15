@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "Battelist",
   "version": "1.0.0",
@@ -32,6 +31,3 @@
     "twilio": "^3.35.1"
   }
 }
-=======
-
->>>>>>> 1eddcf3379ce89873fbbccf77e2f640af9483249

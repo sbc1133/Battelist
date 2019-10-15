@@ -10,7 +10,7 @@ db.Task.create({
 
 db.Task.create({
     taskName:'return call',
-    UserId: 7,
+    UserId: 2,
     assigneeName: "mr.joshuajonas@gmail.com",
     selfAssigned: false,
     AssigneeId: 5,
@@ -18,8 +18,9 @@ db.Task.create({
  });
 
  db.Task.create({
-   taskName:'return 45 call',
-   UserId: 9,
+
+   taskName:'return call',
+   UserId: 1,
    assigneeName: "mr.joshuajonas@gmail.com",
    selfAssigned: false,
    AssigneeId: 5,
@@ -27,8 +28,8 @@ db.Task.create({
  });
 
  db.Task.create({
-   taskName:'test middle',
-   UserId: 6,
+   taskName:'return call',
+   UserId: 3,
    assigneeName: "mr.joshuajonas@gmail.com",
    selfAssigned: false,
    AssigneeId: 4,
@@ -36,15 +37,10 @@ db.Task.create({
  });
 
  db.Task.create({
-    taskName:'rtest bottom',
-    UserId: 8,
+    taskName:'return call',
+    UserId: 1,
     assigneeName: "mr.joshuajonas@gmail.com",
     selfAssigned: false,
     AssigneeId: 1,
     score: 5,
  });
-
-
-
-
-
