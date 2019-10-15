@@ -18,8 +18,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
  
           },
+<<<<<<< HEAD
+=======
         
 
+>>>>>>> 1eddcf3379ce89873fbbccf77e2f640af9483249
           score: {
             type: DataTypes.INTEGER,
           },
