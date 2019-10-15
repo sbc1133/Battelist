@@ -22,7 +22,10 @@ $(document).ready(function () {
   // Reload page when modal closed
 
   $("button.close").on("click", function () {
-    location.reload();
+    $("#create-member-form").css("display", "none");
+    $("#create-task-form").css("display", "none");
+    $("#create-account-form").css("display", "none");
+
   })
 
   // Link to main content for ease in development
@@ -114,3 +117,14 @@ $(document).ready(function () {
   //Document , ready ends here 
   */
 })
+
+// On click command for modal form
+
+$(".add-member-button").on("click", function () {
+  $("#create-member-form").css("display", "flex");
+})
+
+$(".add-task-button").on("click", function () {
+  $("#create-member-form").css("display", "flex");
+})
+

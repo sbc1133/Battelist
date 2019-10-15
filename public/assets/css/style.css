@@ -118,14 +118,12 @@
 }
 
 .add-task-button {
-    display: none;
     font-size: 3rem;
     z-index: 11;
 
 }
 
 .add-member-button {
-    display: none;
     font-size: 3rem;
     z-index: 11;
 }
@@ -221,29 +219,13 @@ h1:after {
     display: block;
 }
 
-/* --------------------------- SIDE BAR -----------------------------*/
-
-#sidebar {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    right: 0;
-    background: linear-gradient(rgba(155, 197, 222, 0.5), #9BC5DE, rgba(155, 197, 222, 0.5)), url("../../assets/img/pastel.gif") no-repeat;
-    background-size: cover;
-    padding-top: 8.5rem;
-    text-align: center;
-
+#create-member-form {
+    display: none;
 }
 
-#sidebar h2 {
-    font-size: 2rem;
-    font-family: "BenchNine";
-    line-height: 0.8;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: white;
+#create-account-form {
+    display: none;
 }
-
 /*------------------------- Media Queries ------------------------------*/
 
 @media screen and (max-width: 1256px) {}
