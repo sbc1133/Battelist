@@ -19,7 +19,13 @@ module.exports = function(app) {
       })
     
     });
-  
+    app.get("/api/render/assignee", function(req, res) {
+      // Add sequelize code to find all tasks, and return them to the user with res.json
+      db.Assignee.findAll({include:[db.Task]}).then(function(dbAssignee){
+        res.render("list",{user:dbAssignee})
+      })
+    
+    });
     app.get("/api/assignee/:tasks", function(req, res) {
       // Add sequelize code to find all tasks where the assignee is equal to req.params.assignee,
       // return the result to the user with res.json
