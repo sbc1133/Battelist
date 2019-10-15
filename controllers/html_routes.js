@@ -11,7 +11,11 @@ var path = require("path");
 module.exports = function(app) {
 
     // Each of these routes handles the HTML page that the user gets sent to.
+    app.get("/", function(req, res) {
+      res.sendFile((path.join(__dirname + "../../public/index.html")))
+    });
   
+    //add moer routes once html files are named
     
   
-  };
+}

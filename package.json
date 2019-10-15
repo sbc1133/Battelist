@@ -1,5 +1,5 @@
 {
-  "name": "Project_Two",
+  "name": "Battelist",
   "version": "1.0.0",
   "description": "A productivity application that allows the user to set up a family account, create todo lists for each family memeber and send their lists to them via email or sms message. This app is designed to keep the whole family up-to-date and staying productive.",
   "main": "server.js",
@@ -9,20 +9,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wandrew8/Project_Two.git"
+    "url": "git+https://github.com/sbc1133/Battelist.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wandrew8/Project_Two/issues"
+    "url": "https://github.com/sbc1133/Battelist/issues"
   },
-  "homepage": "https://github.com/wandrew8/Project_Two#readme",
+  "homepage": "https://github.com/sbc1133/Battelist#readme",
   "dependencies": {
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "googleapis": "^43.0.0",
     "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
-    "sequelize": "^5.19.5"
+    "nodemailer": "^6.3.1",
+    "path": "^0.12.7",
+    "sequelize": "^5.19.6",
+    "twilio": "^3.35.1"
   }
 }

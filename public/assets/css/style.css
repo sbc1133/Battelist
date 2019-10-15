@@ -1,0 +1,425 @@
+#main-title-page {
+    height: 100vh;
+    text-align: center;
+}
+
+#scrollArrow {
+    display: none;
+}
+
+/* ------------------- Title Logo and Description ------------------ */
+
+.word {
+    display: block;
+    text-align: center;
+    font-family: "BenchNine";
+    line-height: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+}
+
+.logo-container {
+    width: 450px;
+    text-align: center;
+    margin: 3% auto 0% auto;
+}
+
+.wrapper {
+    width: 450px;
+    margin: 3% auto;
+    position: Relative;
+    padding: 20px 0px;
+    border-top: 5px solid #90B3C9;
+    border-bottom: 5px solid #D99AB5;
+}
+
+.word1 {color: #9BC5DE}
+.word2 {color: #90B3C9}
+.word3 {color: #809BB0}
+.word4 {color: #6B7B8A}
+.word5 {color: #8B8091}
+.word6 {color: #B68FA2}
+.word7 {color: #D99AB5}
+
+.word1, h1 {
+    font-size: 7rem
+}
+
+.word2 {
+    font-size: 5.5rem
+}
+
+.word3 {
+    font-size: 7rem
+}
+
+.word4 {
+    font-size: 7rem
+}
+
+.word5 {
+    font-size: 6rem
+}
+
+.word6 {
+    font-size: 8rem
+}
+
+.word7 {
+    font-size: 4.5rem
+}
+
+/* ---------------- Sign In Form -------------------*/
+
+#sign-in-form-container {
+    height: 100vh;
+    background: linear-gradient(rgba(155, 197, 222, 0.5), rgba(107, 123, 138, 0.5), rgba(139, 128, 145, 0.5), rgba(217, 154, 181, 0.5)), url("../../assets/img/pastel.gif") no-repeat center;
+    background-size: cover;
+}
+
+.sign-in {
+    margin: 5rem auto 0 auto;
+    width: 80%;
+    height: 65%;
+    max-height: 500px;
+}
+
+.sign-in-text {
+    color: #9BC5DE;
+    font-family: "BenchNine";
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+/* ------------------------New User Modal Form ---------------------- */
+
+/* Modal Background */
+
+#modal-background {
+    display: none;
+    height: 100vh;
+    background: linear-gradient(rgba(155, 197, 222, 0.5), rgba(107, 123, 138, 0.5), rgba(139, 128, 145, 0.5), rgba(217, 154, 181, 0.5)), url("../../assets/img/pastel.gif") no-repeat center;
+    background-size: cover;
+}
+
+#create-account-form {
+    display: none;
+    z-index:12;
+}
+
+/* ------------- MAIN CONTENT PAGE --------------- */
+
+/* HEADER */
+
+#main-page {
+    display: none;
+
+}
+
+.add-task-button {
+    display: none;
+    font-size: 3rem;
+    z-index: 11;
+
+}
+
+.add-member-button {
+    display: none;
+    font-size: 3rem;
+    z-index: 11;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    height: 15vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+
+}
+
+.header-background {
+    height: 14vh;
+    width: 100vw;
+    background: linear-gradient(rgba(155, 197, 222, 0.5), rgba(107, 123, 138, 0.5), rgba(139, 128, 145, 0.5), rgba(217, 154, 181, 0.5)), url("../../assets/img/pastel.gif") no-repeat center;
+    background-size: cover;
+    position: fixed;
+    z-index: 9;
+}
+
+h1 {
+    font-family: "BenchNine";
+    text-transform: uppercase;
+    color: rgba(155, 197, 222, 0.7);
+    letter-spacing: 10px;
+    font-size: 5rem;
+    position: relative;
+    float: left;
+}
+
+h1:after {
+    content: "BattleList";
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    color: rgba(217, 154, 181, 0.7);
+}
+
+
+
+.nav-logo {
+    color: #6B7B8A;
+}
+
+
+#lists-container {
+    padding-top: 7.5rem;
+    height: 100vh;
+    overflow: auto;
+}
+
+/*  -------------------------- Task List Card ------------------------ */
+
+.card-header {
+    background: linear-gradient(90deg,rgba(155, 197, 222, 0.5), #9BC5DE, rgba(155, 197, 222, 0.5)), url("../../assets/img/pastel.gif") no-repeat;
+    background-size: cover;
+    height: 50px;
+}
+
+.task-list {
+    margin-bottom: 2%;
+    height: 269px;
+}
+
+.list-items {
+    overflow-x: auto;
+    scrollbar-width: thin;    
+}
+
+.text-decoration {
+    color: #b2bec3;
+    text-decoration: line-through;
+}
+
+.list-group-item:hover {
+    background-color: #dfe4ea;
+}
+
+.card h2 {
+    font-size: 2rem;
+    font-family: "BenchNine";
+    line-height: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+#mobile-share-button {
+    display: none;
+}
+#desktop-share-button {
+    display: block;
+}
+
+/* --------------------------- SIDE BAR -----------------------------*/
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    right: 0;
+    background: linear-gradient(rgba(155, 197, 222, 0.5), #9BC5DE, rgba(155, 197, 222, 0.5)), url("../../assets/img/pastel.gif") no-repeat;
+    background-size: cover;
+    padding-top: 8.5rem;
+    text-align: center;
+
+}
+
+#sidebar h2 {
+    font-size: 2rem;
+    font-family: "BenchNine";
+    line-height: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+}
+
+/*------------------------- Media Queries ------------------------------*/
+
+@media screen and (max-width: 1256px) {}
+
+/* Bootstrap Extra Large */
+
+@media screen and (max-width: 1200px) {}
+
+/* Media Query- Ipad Pro*/
+
+@media screen and (max-width: 1024px) {
+    #main-title-page {
+        height: 50vh;
+    }
+    #sign-in-sheet {
+        height: 50vh;
+    }
+}
+
+/* Media Query - Bootstrap Large */
+
+@media screen and (max-width: 992px) {
+    .add-member-button {
+        display: inline-block;
+    
+    }
+    .add-task-button {
+        display: inline-block;
+    
+    }
+    #main-title-page {
+        height: 50vh;
+    }
+    #sign-in-sheet {
+        height: 50vh;
+    }
+    #sidebar {
+        display: none;
+    }
+}
+
+/* Media Query- Ipad / Bootstrap Medium */
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 600px) {
+    .add-member-button {
+        display: flex;
+        font-size: 2rem;
+    }
+    .add-task-button {
+        display: flex;
+        font-size: 2rem;    
+    }
+    #add-task-button {
+        display: inline-block;
+    }
+    #mobile-share-button {
+        display: block;
+        width: 100%;
+    }
+    .task-list {
+        height: auto;
+        overflow: hidden;
+    }
+    #desktop-share-button {
+        display: none;
+    }
+    
+    #lists-container {
+        height: auto;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .header-background {
+        height: 0vh;
+    }
+    #sign-in-form-container {
+        display: none;
+    }
+    #main-title-page {
+        height: 100vh;
+    }
+    #sign-in-sheet {
+        height: 100vh;
+    }
+    /* ARROW SCROLL ANIMATION */
+    #scrollArrow {
+        display: flex;
+        padding-top: 70px;
+    }
+    #scrollArrow a span {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        border-left: 1px solid #333;
+        border-bottom: 1px solid #333;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-animation: sdb05 1.5s infinite;
+        animation: sdb05 1.5s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb05 {
+        0% {
+            -webkit-transform: rotate(-45deg) translate(0, 0);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+            opacity: 0;
+        }
+    }
+    @keyframes sdb05 {
+        0% {
+            transform: rotate(-45deg) translate(0, 0);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(-45deg) translate(-20px, 20px);
+            opacity: 0;
+        }
+    }
+}
+
+/*Media Query - Iphone 6/7/8/X*/
+
+@media screen and (max-width: 375px) {
+    h1:after {
+        left: 3px;
+        top: 2px;
+    }
+        h1 {
+        font-size: 2rem;
+    }
+    .sign-in {
+        margin: 5rem auto 0 auto;
+        width: 95%;
+        max-height: 450px;
+    }
+    .logo-container {
+        width: 350px;
+        margin: 20% auto 0% auto;
+    }
+    .wrapper {
+        width: 350px;
+    }
+    .word1 {
+        font-size: 6rem
+    }
+    .word2 {
+        font-size: 4.5rem
+    }
+    .word3 {
+        font-size: 6rem
+    }
+    .word4 {
+        font-size: 6rem
+    }
+    .word5 {
+        font-size: 5rem
+    }
+    .word6 {
+        font-size: 7rem
+    }
+    .word7 {
+        font-size: 3.5rem
+    }
+}
