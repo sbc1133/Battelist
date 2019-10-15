@@ -27,19 +27,23 @@ db.Task.create({
  });
 
  db.Task.create({
+
    taskName:'return call',
    UserId: 3,
+
    assigneeName: "mr.joshuajonas@gmail.com",
    selfAssigned: false,
-   AssigneeId: 5,
+   AssigneeId: 4,
    score: 5,
  });
 
  db.Task.create({
+
     taskName:'return call',
     UserId: 1,
+
     assigneeName: "mr.joshuajonas@gmail.com",
     selfAssigned: false,
-    AssigneeId: 5,
+    AssigneeId: 1,
     score: 5,
  });
