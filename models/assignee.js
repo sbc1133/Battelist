@@ -14,13 +14,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    taskName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-  },
     phoneNumber: {
       type: DataTypes.INTEGER,
 
@@ -32,13 +25,6 @@ module.exports = function(sequelize, DataTypes) {
           isEmail : true
         }
     },
-    notificationTime: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-  },
   points: {
     type: DataTypes.INTEGER,
 },

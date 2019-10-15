@@ -1,5 +1,7 @@
 // Scroll Down Arrow animation
 
+$(document).ready(function() {
+
 $("#scrollArrow").on('click', function () {
   $("#main-title-page").hide();
   $("#sign-in-form-container").fadeIn();
@@ -29,5 +31,7 @@ $("#development-link").on("click", function() {
   $("#sign-in-form-container").css("display", "none");
   $("#main-title-page").css("display", "none");
   $("#scrollArrow").css("display", "none");
+
+})
 
 })
