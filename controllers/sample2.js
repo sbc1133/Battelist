@@ -1,7 +1,7 @@
 require('dotenv').config();
 module.exports = function sendMsg(name, email, tasks) {
     const nodemailer = require('nodemailer');
-   // const twilio = require('twilio');
+   
     const userInfo = require('./assignedUser');
     const { google } = require("googleapis");
     const OAuth2 = google.auth.OAuth2;
@@ -15,13 +15,6 @@ module.exports = function sendMsg(name, email, tasks) {
         refresh_token: '1/AT7VTKJlVFp3GtiLWpOQxscO3WpnnMOG6gnqZmDAyjc'
     });
     const accessToken = oauth2Client.getAccessToken();
-
-    //var accountSid = 'ACfb1cb29f8a8b6effc61693f15ba47bb3'; // Your Account SID from www.twilio.com/console
-    //var authToken = '05347177cf275af70aa92e48f62c3f35';   // Your Auth Token from www.twilio.com/console
-    //console.log("I M... ", accountSid);
-
-    //var client = new twilio(accountSid, authToken);
-
 
     console.log("hello......... ", userInfo.name);
 
