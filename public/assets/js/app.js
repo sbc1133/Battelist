@@ -65,4 +65,52 @@ $(document).ready(function () {
   $(".delete-button").on("click", function () {
     $(this).parent('.list-group-item').remove();
   });
+
+  // write code to get task list from database 
+  /*
+  function renderCard(name_query) {
+    
+    $.get("/api/user", function (data) {
+      for (let i = 0; i < data.length; i++) {
+        var mainCard = $("<div class='card task-list'>");
+        var nameCard = $("<div class='text-center card-header success-color white-text'>")
+        var name = $("<h2>");
+        name.text(data[i].username);
+        nameCard.append(name)
+        mainCard.append(nameCard)
+        var listcontainer = $("<div class='list-items'>");
+        var olcontainer = $("<ol class='sortable list-group'>");
+        var liBlock = '<li class="list-group-item">'+'<div class="md-v-line"></div>'+
+        '<div class="md-v-line"></div><span class="badge list-number badge-info badge-pill mr-4">1</span>';
+        var taskItem = $("<span class='align-middle item'>");
+        $.get("/api/tasks/:name", function (data) {
+
+        })
+        taskItem.text();
+      }
+      console.log(names)
+    })
+   
+    // create ajax request to query databse
+
+  }
+
+  function get_names_tasks(){
+    var names=[];
+    $.get("/api/user", function (data) {
+      //console.log(data);
+      //console.log(data.length)
+      for (let i = 0; i < data.length; i++) {
+        names.push(data[i].username)
+        //console.log(names)
+      }
+      console.log(names)
+    })
+    return {names,tasks};
+  }
+
+
+  get_names_tasks();
+  //Document , ready ends here 
+  */
 })
