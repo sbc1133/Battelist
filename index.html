@@ -11,6 +11,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
 <body>
 
@@ -59,8 +61,7 @@
 
   <!-- -------------------------------------------NEW ACCOUNT SIGN UP FORM (MODAL) ---------------------------------------------------------------- -->
 
-  <div class="modal" id="create-account-form" role="dialog" aria-labelledby="myModalLabel"
-    data-backdrop="false">
+  <div class="modal" id="create-account-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
@@ -97,17 +98,17 @@
 
   <div id="main-page">
 
-      <div class="navbar fixed-top navbar-expand-sm navbar-dark white header">
-        <div>
-          <h2 class="add-member-button"><span class="badge badge-info"><i class="fas fa-user-plus"></i></span></h2>
-        </div>
-        <div>
-          <h1 id="main-page-header">BattleList</h1>
-        </div>
-        <div>
-          <h2 class="add-task-button"><span class="badge badge-info"><i class="fas fa-edit"></i></span></h2>
-        </div>
+    <div class="navbar fixed-top navbar-expand-sm navbar-dark white header">
+      <div>
+        <h2 class="add-member-button"><span class="badge badge-info"><i class="fas fa-user-plus"></i></span></h2>
       </div>
+      <div>
+        <h1 id="main-page-header">BattleList</h1>
+      </div>
+      <div>
+        <h2 class="add-task-button"><span class="badge badge-info"><i class="fas fa-edit"></i></span></h2>
+      </div>
+    </div>
 
 
     <div class="container-fluid">
@@ -406,6 +407,41 @@
       <!-- Side New Task Bar -->
       <div id="sidebar" class="card bg-primary col-xs-0 col-sm-0 col-md-0 col-lg-3 col-xl-3">
         <h2>Add New Task</h2>
+        <form id="newTaskForm" class="modal-body mx-3">
+          <div class="form-group">
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Assignee</option>
+              <option>Michelle</option>
+              <option>Shivali</option>
+              <option>Josh</option>
+              <option>Andrew</option>
+              <option>John</option>
+            </select>
+          </div>
+
+          <div id="addNewTodo" class="form-group">
+            <input class="form-control" placeholder="Task" id="taskNameSubmit"></input>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button id="newTaskSubmitButton" class="btn btn-default">Sumbit</button>
+          </div>
+        </form>
+        <!--  -->
+        <h2>Add New Member</h2>
+        <form id="newMemberForm" class="modal-body mx-3">
+
+          <input type="text" id="memberName" class="form-control mb-4" placeholder="Name">
+
+          <input type="email" id="memberEmail" class="form-control mb-4" placeholder="E-mail">
+
+          <input type="phoneNumber" id="memberPhoneNumber" class="form-control mb-4" placeholder="Phone Number">
+          <div class="modal-footer d-flex justify-content-center">
+            <button id="newMemberSubmitButton" class="btn btn-default">Submit</button>
+          </div>
+        </form>
+
+
+
       </div>
 
 
@@ -422,6 +458,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="./public/assets/js/app.js"></script>
+<script src="./assets/js/app.js"></script>
 
 </html>
