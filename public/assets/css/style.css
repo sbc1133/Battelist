@@ -107,6 +107,10 @@
     background-size: cover;
 }
 
+#create-account-form {
+    display: none;
+}
+
 /* ------------- MAIN CONTENT PAGE --------------- */
 
 /* HEADER */
@@ -114,6 +118,10 @@
 #main-page {
     display: none;
 
+}
+
+#add-task-button {
+    display: none;
 }
 
 .header {
@@ -173,7 +181,7 @@ h1:after {
 
 .task-list {
     margin-bottom: 2%;
-    height: 250px;
+    height: 269px;
 }
 
 #list-items {
@@ -187,6 +195,12 @@ h1:after {
     line-height: 0.8;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+#mobile-share-button {
+    display: none;
+}
+#desktop-share-button {
+    display: block;
 }
 
 /* --------------------------- SIDE BAR -----------------------------*/
@@ -250,11 +264,26 @@ h1:after {
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 600px) {
+    #add-task-button {
+        display: inline-block;
+    }
+    #mobile-share-button {
+        display: block;
+        width: 100%;
+    }
+    .task-list {
+        height: auto;
+        overflow: hidden;
+    }
+    #desktop-share-button {
+        display: none;
+    }
+    
     #lists-container {
         height: auto;
     }
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     .header-background {
         height: 0vh;
@@ -320,7 +349,7 @@ h1:after {
 
 @media screen and (max-width: 375px) {
     h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .sign-in {
         margin: 5rem auto 0 auto;

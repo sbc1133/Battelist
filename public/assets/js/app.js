@@ -13,7 +13,7 @@ $("#signUpLink").on("click", function() {
   $("#sign-in-form-container").css("display", "none");
   $("#main-title-page").css("display", "none");
   $("#modal-background").css("display", "flex");
-  $("#centralModalLg").modal("show")
+  $("#create-account-form").modal("show")
 })
 
 // Reload page when modal closed
@@ -30,4 +30,8 @@ $("#development-link").on("click", function() {
   $("#main-title-page").css("display", "none");
   $("#scrollArrow").css("display", "none");
 
+})
+
+$("add-new-task-button").on("click", function() {
+  $("#add-new-task-modal").css("display", "flex");
 })
