@@ -109,6 +109,7 @@
 
 #create-account-form {
     display: none;
+    z-index:12;
 }
 
 /* ------------- MAIN CONTENT PAGE --------------- */
@@ -120,12 +121,22 @@
 
 }
 
-#add-task-button {
+.add-task-button {
     display: none;
+    font-size: 3rem;
+    z-index: 11;
+
+}
+
+.add-member-button {
+    display: none;
+    font-size: 3rem;
+    z-index: 11;
 }
 
 .header {
-    display: block;
+    display: flex;
+    justify-content: space-around;
     height: 15vh;
     width: 100vw;
     position: fixed;
@@ -148,8 +159,8 @@ h1 {
     color: rgba(155, 197, 222, 0.7);
     letter-spacing: 10px;
     font-size: 5rem;
-    display: inline;
     position: relative;
+    float: left;
 }
 
 h1:after {
@@ -159,6 +170,8 @@ h1:after {
     top: 2px;
     color: rgba(217, 154, 181, 0.7);
 }
+
+
 
 .nav-logo {
     color: #6B7B8A;
@@ -184,9 +197,18 @@ h1:after {
     height: 269px;
 }
 
-#list-items {
-    overflow: auto;
+.list-items {
+    overflow-x: auto;
     scrollbar-width: thin;    
+}
+
+.text-decoration {
+    color: #b2bec3;
+    text-decoration: line-through;
+}
+
+.list-group-item:hover {
+    background-color: #dfe4ea;
 }
 
 .card h2 {
@@ -248,6 +270,14 @@ h1:after {
 /* Media Query - Bootstrap Large */
 
 @media screen and (max-width: 992px) {
+    .add-member-button {
+        display: inline-block;
+    
+    }
+    .add-task-button {
+        display: inline-block;
+    
+    }
     #main-title-page {
         height: 50vh;
     }
@@ -264,6 +294,14 @@ h1:after {
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 600px) {
+    .add-member-button {
+        display: flex;
+        font-size: 2rem;
+    }
+    .add-task-button {
+        display: flex;
+        font-size: 2rem;    
+    }
     #add-task-button {
         display: inline-block;
     }
@@ -348,7 +386,11 @@ h1:after {
 /*Media Query - Iphone 6/7/8/X*/
 
 @media screen and (max-width: 375px) {
-    h1 {
+    h1:after {
+        left: 3px;
+        top: 2px;
+    }
+        h1 {
         font-size: 2rem;
     }
     .sign-in {
