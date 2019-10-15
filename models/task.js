@@ -7,13 +7,6 @@ module.exports = function(sequelize, DataTypes) {
             len: [1]
           }
         },
-        userId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          validate: {
-            len: [1]
-          }
-        },
         assigneeName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -25,13 +18,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
  
           },
-          assigneeId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-          },
+        
 
           score: {
             type: DataTypes.INTEGER,

@@ -22,13 +22,14 @@ module.exports = function (app) {
 
   });
 
-  app.get("/api/tasks/:assignee", function (req, res) {
+  app.get("/api/tasks/:id", function (req, res) {
     // Add sequelize code to find all tasks where the assignee is equal to req.params.assignee,
     // return the result to the user with res.json
-    db.Task.findAll({
-      where: {
-        assignee: req.params.assignee
-      }
+   db.Assignee.findOne({
+     where: {
+       id:req.params.id
+     },
+    include:[db.Task]
     }).then(function (dbTask) {
       res.json(dbTask)
     })
