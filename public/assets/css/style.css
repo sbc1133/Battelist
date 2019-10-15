@@ -103,6 +103,11 @@
     background-size: cover;
 }
 
+#create-account-form {
+    display: none;
+    z-index:12;
+}
+
 /* ------------- MAIN CONTENT PAGE --------------- */
 
 /* HEADER */
@@ -112,8 +117,22 @@
 
 }
 
+.add-task-button {
+    display: none;
+    font-size: 3rem;
+    z-index: 11;
+
+}
+
+.add-member-button {
+    display: none;
+    font-size: 3rem;
+    z-index: 11;
+}
+
 .header {
-    display: block;
+    display: flex;
+    justify-content: space-around;
     height: 15vh;
     width: 100vw;
     position: fixed;
@@ -136,8 +155,8 @@ h1 {
     color: rgba(155, 197, 222, 0.7);
     letter-spacing: 10px;
     font-size: 5rem;
-    display: inline;
     position: relative;
+    float: left;
 }
 
 h1:after {
@@ -147,6 +166,8 @@ h1:after {
     top: 2px;
     color: rgba(217, 154, 181, 0.7);
 }
+
+
 
 .nav-logo {
     color: #6B7B8A;
@@ -169,12 +190,21 @@ h1:after {
 
 .task-list {
     margin-bottom: 2%;
-    height: 250px;
+    height: 269px;
 }
 
-#list-items {
-    overflow: auto;
+.list-items {
+    overflow-x: auto;
     scrollbar-width: thin;    
+}
+
+.text-decoration {
+    color: #b2bec3;
+    text-decoration: line-through;
+}
+
+.list-group-item:hover {
+    background-color: #dfe4ea;
 }
 
 .card h2 {
@@ -183,6 +213,12 @@ h1:after {
     line-height: 0.8;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+#mobile-share-button {
+    display: none;
+}
+#desktop-share-button {
+    display: block;
 }
 
 /* --------------------------- SIDE BAR -----------------------------*/
@@ -230,6 +266,14 @@ h1:after {
 /* Media Query - Bootstrap Large */
 
 @media screen and (max-width: 992px) {
+    .add-member-button {
+        display: inline-block;
+    
+    }
+    .add-task-button {
+        display: inline-block;
+    
+    }
     #main-title-page {
         height: 50vh;
     }
@@ -246,11 +290,34 @@ h1:after {
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 600px) {
+    .add-member-button {
+        display: flex;
+        font-size: 2rem;
+    }
+    .add-task-button {
+        display: flex;
+        font-size: 2rem;    
+    }
+    #add-task-button {
+        display: inline-block;
+    }
+    #mobile-share-button {
+        display: block;
+        width: 100%;
+    }
+    .task-list {
+        height: auto;
+        overflow: hidden;
+    }
+    #desktop-share-button {
+        display: none;
+    }
+    
     #lists-container {
         height: auto;
     }
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     .header-background {
         height: 0vh;
@@ -315,8 +382,12 @@ h1:after {
 /*Media Query - Iphone 6/7/8/X*/
 
 @media screen and (max-width: 375px) {
-    h1 {
-        font-size: 3rem;
+    h1:after {
+        left: 3px;
+        top: 2px;
+    }
+        h1 {
+        font-size: 2rem;
     }
     .sign-in {
         margin: 5rem auto 0 auto;
