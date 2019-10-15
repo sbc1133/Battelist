@@ -32,21 +32,11 @@ module.exports = function(sequelize, DataTypes) {
               len: [1]
             }
           },
-          prioritize: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-          },
+
           score: {
             type: DataTypes.INTEGER,
           },
         
-        assignee: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        }
       });
 
       Task.associate = function(models) {

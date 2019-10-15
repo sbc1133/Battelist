@@ -3,8 +3,9 @@
 // ==============================================================================
 
 var express = require("express");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 var db = require("./models");
+var path = require("path")
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -20,14 +21,15 @@ app.use(express.json());
 // SERVES STATIC CONTENT
 // ==============================================================================
 
-app.use(express.static(__dirname + '/public'));
+
+app.use(express.static('public'));
 
 // ==============================================================================
 // HANDLEBARS CONFIGURATION
 // ==============================================================================
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 // ================================================================================
 //  ROUTES
