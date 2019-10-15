@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
     notificationTime: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1]
@@ -44,6 +44,13 @@ module.exports = function(sequelize, DataTypes) {
 },
 
   });
+  Assignee.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Assignee.hasMany(models.Task, {
+      onDelete: "cascade"
+    });
+  };
   return Assignee;
     
   };

@@ -32,7 +32,6 @@ module.exports = function(app) {
     })
   });
 
-
   app.post("/api/tasks", function(req, res) {
     // Add sequelize code for creating a task using req.body,
     // then return the result using res.json
@@ -74,6 +73,17 @@ module.exports = function(app) {
     //get household .email from household where where household jon doe
     //get task and email or phone of jon doe
     //
-    
+   /* 
+   app.get("/api/shivali/:userid",function(req,res){
+     db.User.findOne({
+       where :{
+         id:req.params.id
+       },{
+         include:[db.Task]
+       }
+     }).then()
+     res.json(req.params.id+"hello shivali here you will see your object with follwing things:\n name , email, phonenumber, tasks")
+   })
+   */
   };
   
