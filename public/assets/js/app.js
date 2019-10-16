@@ -186,6 +186,11 @@ $(".add-task-button").on("click", function () {
     );
     });
 
+
+  $("button.close-modal").on("click", function () {
+    $("#create-response-code-modal").css("display","none");
+  })
+
     $(".share-button").on("click",function(){
       console.log("button clicked")
       var userid = $(this).attr("data-userid");
@@ -193,7 +198,13 @@ $(".add-task-button").on("click", function () {
       var query_url = "/api/assignee/share/"+userid;
       console.log(query_url)
       $.get(query_url,function(data){
-        console.log(data)
+      console.log(data)
+      if ( data.includes("250 2.0.0 OK")){
+        console.log("found string") 
+        $("#create-response-code-modal").css("display","flex");
+      }
       })
     })
+
+  
   });
