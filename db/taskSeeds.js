@@ -95,7 +95,7 @@ db.Task.create({
    UserId: 2,
    assigneeName: "Shivali Bhalla",
    selfAssigned: false,
-   AssigneeId: 4,
+   AssigneeId: 3,
    score: 5,
  });
 
@@ -104,7 +104,7 @@ db.Task.create({
    UserId: 3,
    assigneeName: "Shivali Bhalla",
    selfAssigned: false,
-   AssigneeId: 4,
+   AssigneeId: 3,
    score: 5,
  });
 
@@ -113,7 +113,7 @@ db.Task.create({
    UserId: 4,
    assigneeName: "Shivali Bhalla",
    selfAssigned: false,
-   AssigneeId: 4,
+   AssigneeId: 3,
    score: 5,
  });
 
