@@ -7,8 +7,9 @@ $(document).ready(function () {
 
   $("#scrollArrow").on('click', function () {
     $("#main-title-page").hide();
-    $("#sign-in-form-container").fadeIn();
+    $("#main-page").fadeIn();
     $("#scrollArrow").hide();
+    $("#sign-in-form-container").css("display", "none");
 
   });
 
@@ -77,7 +78,15 @@ $(document).ready(function () {
     $(this).parent('.list-group-item').remove();
   });
 
-  
+
+})
+
+// On click command to open workbench
+
+$("#createWorkbench").on("click", function () {
+  $("#sign-in-form-container").css("display", "none");
+  $("#main-title-page").css("display", "none");
+  $("#main-page").css("display", "flex");
 })
 
 // On click command for modal form
@@ -110,7 +119,7 @@ $(document).ready(function () {
       data: newUserInfo
     }).then(
       function () {
-        console.log("created new user");
+        console.log("created new member");
         // Reload the page to get the updated list
         $("#create-member-form").css("display", "none");
         $("#main-page").css("display", "flex");
@@ -118,67 +127,64 @@ $(document).ready(function () {
       }
     );
 
-    });
+  });
 
-    // Grabbing new account user data to store in 
+  // Grabbing new account user data to store in 
 
-    $("#newUserForm").on("submit", function (event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
-  
-      var newUserInfo = {
-        username: $("#nameInput").val().trim(),
-        phoneNumber: $("#phoneNumberInput").val().trim(),
-        email: $("#emailInput").val().trim(),
-        password: $("#passwordInput").val().trim()
-      };
-  
-      // Send the POST request.
-      $.ajax("/api/user", {
-        type: "POST",
-        data: newUserInfo
-      }).then(
-        function () {
-          console.log("created new account");
-          $("#create-account-form").css("display", "none");
-          $("#modal-background").css("display", "none");
-          $("#main-page").css("display", "flex");
-          $("#create-member-form").css("display", "flex");
-          // Reload the page to get the updated list
-  
-        }
-      );
-  
-      });
+  $("#newUserForm").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newUserInfo = {
+      username: $("#nameInput").val().trim(),
+      phoneNumber: $("#phoneNumberInput").val().trim(),
+      email: $("#emailInput").val().trim(),
+      password: $("#passwordInput").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/user", {
+      type: "POST",
+      data: newUserInfo
+    }).then(
+      function () {
+        console.log("created new account");
+        $("#create-account-form").css("display", "none");
+        $("#modal-background").css("display", "none");
+        $("#main-page").css("display", "flex");
+        $("#create-member-form").css("display", "flex");
+        // Reload the page to get the updated list
+
+      }
+    );
+
+  });
 
 
-       // Grabbing new task data to store in 
+  // Grabbing new task data to store in 
 
-    $("#newUserForm").on("submit", function (event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
+  $("#newUserForm").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
-      var assignedMember = $('#selectAssignee').find(":selected").text();
-  
-      var newTaskInfo = {
-        taskName: $("#taskNameSubmit").val().trim(),
-        assigneeName: $('#selectAssignee').find(":selected").text()
-      };
-  
-      // Needs to find 
-      $.ajax("/api/assignee", {
-        type: "PUT",
-        data: newTaskInfo
-      }).then(
-        function () {
-          console.log("created new account");
-          // Reload the page to get the updated list
-  
-        }
-      );
-  
-      });
+    var assignedMember = $('#selectAssignee').find(":selected").text();
 
+    var newTaskInfo = {
+      taskName: $("#taskNameSubmit").val().trim(),
+      assigneeName: $('#selectAssignee').find(":selected").text()
+    };
+
+    // Needs to find 
+    $.ajax("/api/assignee", {
+      type: "PUT",
+      data: newTaskInfo
+    }).then(
+      function () {
+        console.log("created new account");
+        // Reload the page to get the updated list
+
+      }
+    );
 
 
     $("#share-button").on("click",function(){
@@ -192,4 +198,7 @@ $(document).ready(function () {
       })
     })
   });
+
+
+});
 

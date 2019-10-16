@@ -9,6 +9,22 @@
 
 /* ------------------- Title Logo and Description ------------------ */
 
+#create {
+    margin-top: 10%;
+    color: #6B7B8A;
+    font-family: "BenchNine";
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+#your {
+    color: #6B7B8A;
+    font-family: "BenchNine";
+    text-transform: uppercase;
+    font-size: 3.5rem;
+
+}
+
 .word {
     display: block;
     text-align: center;
@@ -123,6 +139,10 @@
 
 }
 
+#list-container {
+    margin-top: 10%;
+}
+
 .add-member-button {
     font-size: 3rem;
     z-index: 11;
@@ -147,7 +167,7 @@
     z-index: 9;
 }
 
-h1 {
+#main-page-header {
     font-family: "BenchNine";
     text-transform: uppercase;
     color: rgba(155, 197, 222, 0.7);
@@ -157,7 +177,7 @@ h1 {
     float: left;
 }
 
-h1:after {
+#main-page-header:after {
     content: "BattleList";
     position: absolute;
     left: 8px;
@@ -232,87 +252,7 @@ h1:after {
 
 /* Bootstrap Extra Large */
 
-@media screen and (max-width: 1200px) {}
-
-/* Media Query- Ipad Pro*/
-
-@media screen and (max-width: 1024px) {
-    #main-title-page {
-        height: 50vh;
-    }
-    #sign-in-sheet {
-        height: 50vh;
-    }
-}
-
-/* Media Query - Bootstrap Large */
-
-@media screen and (max-width: 992px) {
-    .add-member-button {
-        display: inline-block;
-    
-    }
-    .add-task-button {
-        display: inline-block;
-    
-    }
-    #main-title-page {
-        height: 50vh;
-    }
-    #sign-in-sheet {
-        height: 50vh;
-    }
-    #sidebar {
-        display: none;
-    }
-}
-
-/* Media Query- Ipad / Bootstrap Medium */
-
-@media screen and (max-width: 768px) {}
-
-@media screen and (max-width: 600px) {
-    .add-member-button {
-        display: flex;
-        font-size: 2rem;
-    }
-    .add-task-button {
-        display: flex;
-        font-size: 2rem;    
-    }
-    #add-task-button {
-        display: inline-block;
-    }
-    #mobile-share-button {
-        display: block;
-        width: 100%;
-    }
-    .task-list {
-        height: auto;
-        overflow: hidden;
-    }
-    #desktop-share-button {
-        display: none;
-    }
-    
-    #lists-container {
-        height: auto;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    .header-background {
-        height: 0vh;
-    }
-    #sign-in-form-container {
-        display: none;
-    }
-    #main-title-page {
-        height: 100vh;
-    }
-    #sign-in-sheet {
-        height: 100vh;
-    }
+@media screen and (max-width: 1200px) {
     /* ARROW SCROLL ANIMATION */
     #scrollArrow {
         display: flex;
@@ -361,15 +301,117 @@ h1:after {
     }
 }
 
+/* Media Query- Ipad Pro*/
+
+@media screen and (max-width: 1024px) {
+    #main-title-page {
+        height: 50vh;
+    }
+    #sign-in-sheet {
+        height: 50vh;
+    }
+}
+
+/* Media Query - Bootstrap Large */
+
+@media screen and (max-width: 992px) {
+    #sign-in-form-container {
+        display: none;
+    }
+    #list-container {
+        margin-top: 15%;
+    }
+    .add-member-button {
+        display: inline-block;
+    
+    }
+    .add-task-button {
+        display: inline-block;
+    
+    }
+    #main-title-page {
+        height: 50vh;
+    }
+    #sign-in-sheet {
+        height: 50vh;
+    }
+    #sidebar {
+        display: none;
+    }
+    
+}
+
+/* Media Query- Ipad / Bootstrap Medium */
+
+@media screen and (max-width: 768px) {
+    #list-container {
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #list-container {
+        margin-top: 10%;
+    }
+    .shareButton {
+        width: 100%;
+    }
+    .add-member-button {
+        display: flex;
+        font-size: 2rem;
+    }
+    .add-task-button {
+        display: flex;
+        font-size: 2rem;    
+    }
+    #add-task-button {
+        display: inline-block;
+    }
+    #mobile-share-button {
+        display: block;
+        width: 100%;
+    }
+    .task-list {
+        height: auto;
+        overflow: hidden;
+    }
+    #desktop-share-button {
+        display: none;
+    }
+    
+    #lists-container {
+        height: auto;
+    }
+    #main-page-header {
+        font-size: 2rem;
+    }
+    .header-background {
+        height: 0vh;
+    }
+    #sign-in-form-container {
+        display: none;
+    }
+    #main-title-page {
+        height: 100vh;
+    }
+    #sign-in-sheet {
+        height: 100vh;
+    }
+    
+}
+
 /*Media Query - Iphone 6/7/8/X*/
 
 @media screen and (max-width: 375px) {
-    h1:after {
+    #list-container {
+        margin-top: 30%;
+    }
+    #main-page-header:after {
         left: 3px;
         top: 2px;
     }
-        h1 {
-        font-size: 1.5rem;
+        #main-page-header {
+        font-size: 1.2rem;
     }
     .sign-in {
         margin: 5rem auto 0 auto;
