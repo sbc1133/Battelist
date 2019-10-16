@@ -1,36 +1,29 @@
 const db = require('../models')
 db.Assignee.create({
-   assigneeName:'Joe',
-   username:'Shavali',
-   phoneNumber: 123,
+   assigneeName:'Joshua Jonas',
+   username:'Joshua Jonas',
+   phoneNumber: 2025504986,
    email: "mr.joshuajonas@gmail.com",
-   points: 5
+   points: 3
 });
 db.Assignee.create({
-    assigneeName:'Joe',
-    username:'Shavali',
-    phoneNumber: 123,
-    email: "mr.joshuajonas@gmail.com",
-    points: 5
+    assigneeName:'Michelle Santiago',
+    username:'Michelle Santiago',
+    phoneNumber: 2064769484,
+    email: "shivalibhalla@gmail.com",
+    points: 1
 });
 db.Assignee.create({
-    assigneeName:'Joe',
-    username:'Shavali',
-    phoneNumber: 123,
-    email: "mr.joshuajonas@gmail.com",
-    points: 5
+    assigneeName:'Andrew Weiss',
+    username:'Andrew Weiss',
+    phoneNumber: 2067753688,
+    email: "wandrew8@gmail.com",
+    points: 7
 });
 db.Assignee.create({
-    assigneeName:'Joe',
-    username:'Shavali',
-    phoneNumber: 456,
-    email: "mr.joshuajonas@gmail.com",
-    points: 5
+    assigneeName:'Shivali Bhalla',
+    username:'Shivali Bhalla',
+    phoneNumber:4255536595 ,
+    email: "shivalibhalla@gmail.com",
+    points: 4
 });
-db.Assignee.create({
-    assigneeName:'Joe',
-    username:'Shavali',
-    phoneNumber: 889,
-    email: "mr.joshuajonas@gmail.com",
-    points: 5
-})

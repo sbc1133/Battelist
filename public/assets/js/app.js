@@ -180,5 +180,16 @@ $(document).ready(function () {
       });
 
 
+
+    $("#share-button").on("click",function(){
+      console.log("button clicked")
+      var userid = $(this).attr("data-userid");
+      console.log("my user id is ", userid) ;
+      var query_url = "/api/share/:"+userid;
+      console.log(query_url)
+      $.get(query_url,function(data){
+        console.log(data)
+      })
+    })
   });
 
