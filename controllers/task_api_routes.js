@@ -57,7 +57,7 @@ module.exports = function (app) {
       res.json(dbTask)
     })
   });
-
+  
   // DELETE route for deleting tasks
   app.delete("/api/tasks/:id", function (req, res) {
     // Add sequelize code to delete a task where the id is equal to req.params.id, 
@@ -78,6 +78,19 @@ module.exports = function (app) {
       {
         where: {
           id: req.body.id
+        }
+      }).then(function (dbTask) {
+        res.json(dbTask)
+      })
+    // Add code here to update a task using the values in req.body, where the id is equal to
+    // req.body.id and return the result to the user using res.json
+  });
+  app.put("/api/tasks:name", function (req, res) {
+    db.Task.update(
+      req.body,
+      {
+        where: {
+          assigneeName:req.params.name
         }
       }).then(function (dbTask) {
         res.json(dbTask)
