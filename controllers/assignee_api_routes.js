@@ -3,6 +3,8 @@
 // ==============================================================================
 
 var db = require("../models");
+var share = require("./sample");
+
 
 // ================================================================================
 //  ROUTES
@@ -78,18 +80,24 @@ module.exports = function(app) {
       // req.body.id and return the result to the user using res.json
     });
     
-    app.get("/api/share/:id", function (req, res) {
-   
+    app.get("/api/assignee/share/:id", function (req, res) {
+      console.log(req.params)
       db.Assignee.findOne({
         where: {
           id: req.params.id
-        }
-      },
-      {include:[db.Task]}
-      )
+        },
+      include:[db.Task]
+      })
         .then(function (result) {
-          console.log(result.username)
-          share(result.username,result.email,["something"]).then(function(result){
+          console.log(result.assigneeName)
+          var numTasks = result.Tasks.length;
+          var emailTasks = ""
+         
+          for ( let i = 0 ; i<numTasks;i++){
+            emailTasks = emailTasks+i+" : "+result.Tasks[i].taskName+"\n"
+          }
+          console.log(emailTasks) 
+          share(result.assigneeName,result.email,emailTasks).then(function(result){
             console.log("here is code " , result)
             res.json(result)
           });

@@ -36,7 +36,7 @@ module.exports = function sendMsg(name, email, tasks) {
             accessToken: accessToken
         }
     });
-    
+    /*
     function getTask(mytask){
         var taskStr="" ;
         for (let i = 0; i < mytask.length; i++) {
@@ -44,12 +44,12 @@ module.exports = function sendMsg(name, email, tasks) {
         }
         return taskStr
     }
-
+*/
     var emailObj = {
         from: 'shivalibhalla@gmail.com',
         to: email,
         subject: `Hello ${name},here is your task list from Battleist\n`,
-        text: getTask(tasks)
+        text: tasks
     }
 return new Promise ((resolve,reject)=>{
     var responseCode = transporter.sendMail(emailObj, function (error, info) {

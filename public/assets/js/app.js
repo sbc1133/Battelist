@@ -79,7 +79,6 @@ $(document).ready(function () {
   });
 
 
-})
 
 // On click command to open workbench
 
@@ -99,7 +98,7 @@ $(".add-task-button").on("click", function () {
   $("#create-task-form").css("display", "flex");
 })
 
-$(document).ready(function () {
+
 
   // Grabbing data from new member form to add to assignee api
 
@@ -185,20 +184,16 @@ $(document).ready(function () {
 
       }
     );
+    });
 
-
-    $("#share-button").on("click",function(){
+    $(".share-button").on("click",function(){
       console.log("button clicked")
       var userid = $(this).attr("data-userid");
       console.log("my user id is ", userid) ;
-      var query_url = "/api/share/:"+userid;
+      var query_url = "/api/assignee/share/"+userid;
       console.log(query_url)
       $.get(query_url,function(data){
         console.log(data)
       })
     })
   });
-
-
-});
-
