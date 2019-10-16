@@ -16,20 +16,13 @@
         </div>
         <!----------------------------- SIGN IN FORM ----------------------------------->
 
-        <div id="sign-in-form-container" class="z-depth-1 col-xs-12 col-s-12 col-md-12 col-lg-12 col-xl-6">
+        
+        <div id="sign-in-form-container" class="col-xs-0 col-s-0 col-md-0 col-lg-0 col-xl-6">
             <form class="rounded z-depth-1 sign-in text-center border bg-white border-light p-5">
-
-                <p class="sign-in-text h4 mb-4">Sign in</p>
-
-                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-                <button class="btn btn-info btn-block my-4 btn-info" type="submit">Sign in</button>
-
-                <p>New User?<a id="signUpLink"> Create an Account</a></p>
+                <h1 id="create">Create Your</h1>
+                <h1 id="your">Own BattleList</h1>
+                <button id="createWorkbench" class="btn btn-info btn-block my-4 btn-info" type="submit">Create Workbench</button>
             </form>
-            <button id="development-link">Link for development testing</button>
         </div>
     </div>
 </div>
@@ -62,9 +55,9 @@
                 <label class="mb-2" for="passwdInput">Minimum of 8 Characters in Length</label>
                 <input type="password" id="passwordInput" class="form-control mb-4" placeholder="Password">
 
-            <div class="modal-footer d-flex justify-content-center">
-                <button type="submit" class="btn btn-default">Login</button>
-            </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
             </form>
         </div>
     </div>
@@ -91,10 +84,10 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div id="list-container" class="container-fluid">
         <div class="row">
             {{#each taskiCardData}}
-            <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card task-list">
                     <div class="text-center card-header success-color white-text">
                         <h2>{{assigneeName}}</h2>
@@ -114,21 +107,20 @@
 
                         </ol>
 
-                        <div id="share-button" class="text-center">
-                            <button type="button" class="btn btn-block shareButton btn-info" >Share</button>
-                        </div>
+
 
                     </div>
                 </div>
-                <div id="share-button" class="text-center">
-                    <button type="button" class="btn shareButton btn-info" data-userID={{id}}>Share</button>
+                <div class="text-center">
+                    <button id="share-button" type="submit" class="btn shareButton btn-info"
+                        data-userID={{id}}>Share</button>
                 </div>
             </div>
-            {{/each}} 
+            {{/each}}
         </div>
     </div>
 
-           
+
     <!-- ---------------------------------- ADD NEW TASK MODAL ------------------------------------------------>
 
     <div class="modal" id="create-task-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
@@ -145,8 +137,7 @@
                     <div class="form-group">
                         <select class="form-control" id="selectAssignee">
                             <option>Assignee</option>
-                            <option>Andy</option>
-                            {{#each Assignee}}
+                            {{#each taskiCardData}}
                             <option>{{this.assigneeName}}</option>
                             {{/each}}
                         </select>
@@ -156,9 +147,9 @@
                         <input class="form-control" placeholder="Task" id="taskNameSubmit"></input>
                     </div>
 
-                <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" id="taskSubmit" class="btn btn-default">Submit</button>
-                </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" id="taskSubmit" class="btn btn-default">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
