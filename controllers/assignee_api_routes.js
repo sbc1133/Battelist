@@ -78,5 +78,22 @@ module.exports = function(app) {
       // req.body.id and return the result to the user using res.json
     });
     
+    app.get("/api/share/:id", function (req, res) {
+   
+      db.Assignee.findOne({
+        where: {
+          id: req.params.id
+        }
+      },
+      {include:[db.Task]}
+      )
+        .then(function (result) {
+          console.log(result.username)
+          share(result.username,result.email,["something"]).then(function(result){
+            console.log("here is code " , result)
+            res.json(result)
+          });
+        })
+    });
   };
   
