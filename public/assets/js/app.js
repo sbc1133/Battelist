@@ -1,6 +1,9 @@
 // Scroll Down Arrow animation
 
 $(document).ready(function () {
+  // $.get("/api/render/assignee").then(data=>{
+  //   console.log("data", data)
+  // })
 
   $("#scrollArrow").on('click', function () {
     $("#main-title-page").hide();
@@ -127,4 +130,6 @@ $(".add-member-button").on("click", function () {
 $(".add-task-button").on("click", function () {
   $("#create-member-form").css("display", "flex");
 })
+
+
 
