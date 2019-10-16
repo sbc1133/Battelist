@@ -79,33 +79,25 @@ $(document).ready(function () {
   });
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 93f3c50e09868e248e8d4965b7580f30cd0fe4e2
+  // On click command to open workbench
 
-// On click command to open workbench
+  $("#createWorkbench").on("click", function () {
+    $("#sign-in-form-container").css("display", "none");
+    $("#main-title-page").css("display", "none");
+    $("#main-page").css("display", "flex");
+  })
 
-$("#createWorkbench").on("click", function () {
-  $("#sign-in-form-container").css("display", "none");
-  $("#main-title-page").css("display", "none");
-  $("#main-page").css("display", "flex");
-})
+  // On click command for modal form
 
-// On click command for modal form
+  $(".add-member-button").on("click", function () {
+    $("#create-member-form").css("display", "flex");
+  })
 
-$(".add-member-button").on("click", function () {
-  $("#create-member-form").css("display", "flex");
-})
+  $(".add-task-button").on("click", function () {
+    $("#create-task-form").css("display", "flex");
+  })
 
-$(".add-task-button").on("click", function () {
-  $("#create-task-form").css("display", "flex");
-})
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 93f3c50e09868e248e8d4965b7580f30cd0fe4e2
 
   // Grabbing data from new member form to add to assignee api
 
@@ -160,7 +152,7 @@ $(".add-task-button").on("click", function () {
         $("#main-page").css("display", "flex");
         $("#create-member-form").css("display", "flex");
         // Reload the page to get the updated list
-
+        
       }
     );
 
@@ -175,34 +167,39 @@ $(".add-task-button").on("click", function () {
     console.log("works")
 
     var assignedMember = $('#selectAssignee').find(":selected").text();
+    var name = $('#selectAssignee').find(":selected").text()
 
     var newTaskInfo = {
-      taskName: $("#taskNameSubmit").val().trim()
+      taskName: $("#taskNameSubmit").val().trim(),
+      AssigneeId: $("#selectAssignee").val(),
+      selfAssigned: false,
+      assigneeName: name
     };
 
-    var name= $('#selectAssignee').find(":selected").text()
-
+    console.log(name);
+    console.log(newTaskInfo)
     // Needs to find 
-    $.ajax(`/api/tasks/${name}`, {
-      type: "PUT",
+    $.ajax(`/api/tasks/name/${name}`, {
+      type: "POST",
       data: newTaskInfo
     }).then(
       function () {
-        console.log("created new account");
+        console.log("created new task");
+        window.location.reload();
         // Reload the page to get the updated list
 
       }
     );
-    });
-
-    $(".share-button").on("click",function(){
-      console.log("button clicked")
-      var userid = $(this).attr("data-userid");
-      console.log("my user id is ", userid) ;
-      var query_url = "/api/assignee/share/"+userid;
-      console.log(query_url)
-      $.get(query_url,function(data){
-        console.log(data)
-      })
-    })
   });
+
+  $(".share-button").on("click", function () {
+    console.log("button clicked")
+    var userid = $(this).attr("data-userid");
+    console.log("my user id is ", userid);
+    var query_url = "/api/assignee/share/" + userid;
+    console.log(query_url)
+    $.get(query_url, function (data) {
+      console.log(data)
+    })
+  })
+});
