@@ -203,7 +203,8 @@
 .card-header {
     background: linear-gradient(90deg,rgba(155, 197, 222, 0.5), #9BC5DE, rgba(155, 197, 222, 0.5)), url("../../assets/img/pastel.gif") no-repeat;
     background-size: cover;
-    height: 50px;
+    height: 70px;
+    vertical-align: middle;
 }
 
 .task-list {

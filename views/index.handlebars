@@ -97,8 +97,7 @@
                             {{#each Tasks}}
                             <li class="list-group-item">
                                 <div class="md-v-line"></div>
-                                <div class="md-v-line"></div><span
-                                    class="badge list-number badge-info badge-pill mr-4">{{id}}</span>
+                                <div class="md-v-line"></div>
                                 <span class="align-middle item">{{this.taskName}}</span>
                                 <span class="delete-button badge float-right badge-info"><i
                                         class="fas fa-trash-alt"></i></span>
@@ -108,7 +107,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <button id="share-button" type="button" class="btn shareButton btn-info" data-userid={{id}}>Share</button>
+                    <button id="share-button" type="submit" class="btn shareButton btn-info" data-userid={{id}}>Share</button>
                 </div>
             </div>
             {{/each}}
@@ -133,7 +132,7 @@
                         <select class="form-control" id="selectAssignee">
                             <option>Assignee</option>
                             {{#each taskiCardData}}
-                            <option>{{this.assigneeName}}</option>
+                            <option>{{assigneeName}}</option>
                             {{/each}}
                         </select>
                     </div>

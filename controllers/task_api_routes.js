@@ -85,7 +85,7 @@ module.exports = function (app) {
     // Add code here to update a task using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
   });
-  app.put("/api/tasks:name", function (req, res) {
+  app.put("/api/tasks/:name", function (req, res) {
     db.Task.update(
       req.body,
       {

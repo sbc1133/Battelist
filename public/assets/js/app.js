@@ -79,7 +79,7 @@ $(document).ready(function () {
   });
 
 
-})
+
 
 // On click command to open workbench
 
@@ -99,7 +99,6 @@ $(".add-task-button").on("click", function () {
   $("#create-task-form").css("display", "flex");
 })
 
-$(document).ready(function () {
 
   // Grabbing data from new member form to add to assignee api
 
@@ -163,19 +162,21 @@ $(document).ready(function () {
 
   // Grabbing new task data to store in 
 
-  $("#newUserForm").on("submit", function (event) {
+  $("#taskSubmit").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log("works")
 
     var assignedMember = $('#selectAssignee').find(":selected").text();
 
     var newTaskInfo = {
-      taskName: $("#taskNameSubmit").val().trim(),
-      assigneeName: $('#selectAssignee').find(":selected").text()
+      taskName: $("#taskNameSubmit").val().trim()
     };
 
+    var name= $('#selectAssignee').find(":selected").text()
+
     // Needs to find 
-    $.ajax("/api/assignee", {
+    $.ajax(`/api/tasks/${name}`, {
       type: "PUT",
       data: newTaskInfo
     }).then(
