@@ -1,11 +1,15 @@
 // Scroll Down Arrow animation
 
 $(document).ready(function () {
+  // $.get("/api/render/assignee").then(data=>{
+  //   console.log("data", data)
+  // })
 
   $("#scrollArrow").on('click', function () {
     $("#main-title-page").hide();
-    $("#sign-in-form-container").fadeIn();
+    $("#main-page").fadeIn();
     $("#scrollArrow").hide();
+    $("#sign-in-form-container").css("display", "none");
 
   });
 
@@ -20,11 +24,16 @@ $(document).ready(function () {
   })
 
   // Reload page when modal closed
-
   $("button.close").on("click", function () {
+    location.reload();
+  })
+
+
+  //
+
+  $("button.close-modal").on("click", function () {
     $("#create-member-form").css("display", "none");
     $("#create-task-form").css("display", "none");
-    $("#create-account-form").css("display", "none");
 
   })
 
@@ -69,62 +78,139 @@ $(document).ready(function () {
     $(this).parent('.list-group-item').remove();
   });
 
-  // write code to get task list from database 
-  /*
-  function renderCard(name_query) {
-    
-    $.get("/api/user", function (data) {
-      for (let i = 0; i < data.length; i++) {
-        var mainCard = $("<div class='card task-list'>");
-        var nameCard = $("<div class='text-center card-header success-color white-text'>")
-        var name = $("<h2>");
-        name.text(data[i].username);
-        nameCard.append(name)
-        mainCard.append(nameCard)
-        var listcontainer = $("<div class='list-items'>");
-        var olcontainer = $("<ol class='sortable list-group'>");
-        var liBlock = '<li class="list-group-item">'+'<div class="md-v-line"></div>'+
-        '<div class="md-v-line"></div><span class="badge list-number badge-info badge-pill mr-4">1</span>';
-        var taskItem = $("<span class='align-middle item'>");
-        $.get("/api/tasks/:name", function (data) {
 
-        })
-        taskItem.text();
+
+  // On click command to open workbench
+
+  $("#createWorkbench").on("click", function () {
+    $("#sign-in-form-container").css("display", "none");
+    $("#main-title-page").css("display", "none");
+    $("#main-page").css("display", "flex");
+  })
+
+  // On click command for modal form
+
+  $(".add-member-button").on("click", function () {
+    $("#create-member-form").css("display", "flex");
+  })
+
+  $(".add-task-button").on("click", function () {
+    $("#create-task-form").css("display", "flex");
+  })
+
+
+  // Grabbing data from new member form to add to assignee api
+
+  $("#newMemberForm").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newUserInfo = {
+      username: $("#nameInput").val().trim(),
+      phoneNumber: $("#phoneNumberInput").val().trim(),
+      email: $("#emailInput").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/assignee", {
+      type: "POST",
+      data: newUserInfo
+    }).then(
+      function () {
+        console.log("created new member");
+        // Reload the page to get the updated list
+        $("#create-member-form").css("display", "none");
+        $("#main-page").css("display", "flex");
+
       }
-      console.log(names)
-    })
-   
-    // create ajax request to query databse
+    );
 
-  }
+  });
 
-  function get_names_tasks(){
-    var names=[];
-    $.get("/api/user", function (data) {
-      //console.log(data);
-      //console.log(data.length)
-      for (let i = 0; i < data.length; i++) {
-        names.push(data[i].username)
-        //console.log(names)
+  // Grabbing new account user data to store in 
+
+  $("#newUserForm").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newUserInfo = {
+      username: $("#nameInput").val().trim(),
+      phoneNumber: $("#phoneNumberInput").val().trim(),
+      email: $("#emailInput").val().trim(),
+      password: $("#passwordInput").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/user", {
+      type: "POST",
+      data: newUserInfo
+    }).then(
+      function () {
+        console.log("created new account");
+        $("#create-account-form").css("display", "none");
+        $("#modal-background").css("display", "none");
+        $("#main-page").css("display", "flex");
+        $("#create-member-form").css("display", "flex");
+        // Reload the page to get the updated list
+        
       }
-      console.log(names)
+    );
+
+  });
+
+
+  // Grabbing new task data to store in 
+
+  $("#taskSubmit").on("click", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    console.log("works")
+
+    var assignedMember = $('#selectAssignee').find(":selected").text();
+    var name = $('#selectAssignee').find(":selected").text()
+
+    var newTaskInfo = {
+      taskName: $("#taskNameSubmit").val().trim(),
+      AssigneeId: $("#selectAssignee").val(),
+      selfAssigned: false,
+      assigneeName: name
+    };
+
+    console.log(name);
+    console.log(newTaskInfo)
+    // Needs to find 
+    $.ajax(`/api/tasks/name/${name}`, {
+      type: "POST",
+      data: newTaskInfo
+    }).then(
+      function () {
+        console.log("created new task");
+        window.location.reload();
+        // Reload the page to get the updated list
+
+      }
+    );
+    });
+
+
+  $("button.close-modal").on("click", function () {
+    $("#create-response-code-modal").css("display","none");
+  })
+
+    $(".share-button").on("click",function(){
+      console.log("button clicked")
+      var userid = $(this).attr("data-userid");
+      console.log("my user id is ", userid) ;
+      var query_url = "/api/assignee/share/"+userid;
+      console.log(query_url)
+      $.get(query_url,function(data){
+      console.log(data)
+      if ( data.includes("250 2.0.0 OK")){
+        console.log("found string") 
+        $("#create-response-code-modal").css("display","flex");
+      }
+      })
     })
-    return {names,tasks};
-  }
 
-
-  get_names_tasks();
-  //Document , ready ends here 
-  */
-})
-
-// On click command for modal form
-
-$(".add-member-button").on("click", function () {
-  $("#create-member-form").css("display", "flex");
-})
-
-$(".add-task-button").on("click", function () {
-  $("#create-member-form").css("display", "flex");
-})
-
+  
+  });
