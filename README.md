@@ -1,8 +1,9 @@
 # Battelist (Project Two)
 
-**Click below to access the app.**  
+**Click below to access the app.** 
 ##### https://github.com/sbc1133/Battelist.git 
 ##### https://sbc1133.github.io/Battelist/
+##### https://aqueous-brushlands-92949.herokuapp.com/
 
 
 **Project Intro:** 
