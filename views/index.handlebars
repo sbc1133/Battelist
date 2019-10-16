@@ -91,18 +91,17 @@
         </div>
     </div>
 
-
     <div class="container-fluid">
         <div class="row">
-           {{#each User}}
+            {{#each taskiCardData}}
             <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="card task-list">
                     <div class="text-center card-header success-color white-text">
-                        <h2>{{this.assigneeName}}</h2>
+                        <h2>{{assigneeName}}</h2>
                     </div>
                     <div class="list-items">
                         <ol class="sortable list-group">
-                            {{#each this.Tasks}}
+                            {{#each Tasks}}
                             <li class="list-group-item">
                                 <div class="md-v-line"></div>
                                 <div class="md-v-line"></div><span
@@ -116,19 +115,20 @@
                         </ol>
 
                         <div id="share-button" class="text-center">
-                            <button type="submit" class="btn btn-block shareButton btn-info">Share</button>
+                            <button type="button" class="btn btn-block shareButton btn-info" >Share</button>
                         </div>
 
                     </div>
                 </div>
                 <div id="share-button" class="text-center">
-                    <button type="button" class="btn shareButton btn-info">Share</button>
+                    <button type="button" class="btn shareButton btn-info" data-userID={{id}}>Share</button>
                 </div>
             </div>
             {{/each}} 
         </div>
     </div>
 
+           
     <!-- ---------------------------------- ADD NEW TASK MODAL ------------------------------------------------>
 
     <div class="modal" id="create-task-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
