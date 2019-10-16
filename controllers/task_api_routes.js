@@ -35,7 +35,7 @@ module.exports = function (app) {
     })
   });
 
-  app.get("/api/tasks/:name", function (req, res) {
+  app.get("/api/tasks/name/:name", function (req, res) {
     // Add sequelize code to find all tasks where the assignee is equal to req.params.assignee,
     // return the result to the user with res.json
    db.Assignee.findOne({
@@ -57,7 +57,7 @@ module.exports = function (app) {
       res.json(dbTask)
     })
   });
-
+  
   // DELETE route for deleting tasks
   app.delete("/api/tasks/:id", function (req, res) {
     // Add sequelize code to delete a task where the id is equal to req.params.id, 
@@ -85,24 +85,33 @@ module.exports = function (app) {
     // Add code here to update a task using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
   });
+  app.put("/api/tasks/:name", function (req, res) {
+    db.Task.update(
+      req.body,
+      {
+        where: {
+          assigneeName:req.params.name
+        }
+      }).then(function (dbTask) {
+        res.json(dbTask)
+      })
+    // Add code here to update a task using the values in req.body, where the id is equal to
+    // req.body.id and return the result to the user using res.json
+  });
   //get task where assaignee is jon doe
   //get household .email from household where where household jon doe
   //get task and email or phone of jon doe
-  //
-
-  app.get("/api/share/:id", function (req, res) {
-   
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function (result) {
-        console.log(result.username)
-        share(result.username,result.email,["something"]).then(function(result){
-          console.log("here is code " , result)
-          res.json(result)
-        });
+  
+  app.post("/api/tasks/name/:name", function (req, res) {
+    console.log("hello", req.param.name);
+    db.Task.create(
+      req.body,
+      ).then(function (dbTask) {
+        res.json(dbTask)
       })
+    // Add code here to update a task using the values in req.body, where the id is equal to
+    // req.body.id and return the result to the user using res.json
   });
+
+
 };

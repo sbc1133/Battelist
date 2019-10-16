@@ -16,20 +16,13 @@
         </div>
         <!----------------------------- SIGN IN FORM ----------------------------------->
 
-        <div id="sign-in-form-container" class="z-depth-1 col-xs-12 col-s-12 col-md-12 col-lg-12 col-xl-6">
+        
+        <div id="sign-in-form-container" class="col-xs-0 col-s-0 col-md-0 col-lg-0 col-xl-6">
             <form class="rounded z-depth-1 sign-in text-center border bg-white border-light p-5">
-
-                <p class="sign-in-text h4 mb-4">Sign in</p>
-
-                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-                <button class="btn btn-info btn-block my-4 btn-info" type="submit">Sign in</button>
-
-                <p>New User?<a id="signUpLink"> Create an Account</a></p>
+                <h1 id="create">Create Your</h1>
+                <h1 id="your">Own BattleList</h1>
+                <button id="createWorkbench" class="btn btn-info btn-block my-4 btn-info" type="submit">Create Workbench</button>
             </form>
-            <button id="development-link">Link for development testing</button>
         </div>
     </div>
 </div>
@@ -62,10 +55,10 @@
                 <label class="mb-2" for="passwdInput">Minimum of 8 Characters in Length</label>
                 <input type="password" id="passwordInput" class="form-control mb-4" placeholder="Password">
 
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
             </form>
-            <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-default">Login</button>
-            </div>
         </div>
     </div>
 </div>
@@ -91,65 +84,56 @@
         </div>
     </div>
 
-
-    {{!-- <div class="container-fluid">
+    <div id="list-container" class="container-fluid">
         <div class="row">
-            {{#each}}
-            <div class="col-xs-12 col-sm-3 col-md-3">
+            {{#each taskiCardData}}
+            <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card task-list">
                     <div class="text-center card-header success-color white-text">
-                        <h2>{{user}}</h2>
+                        <h2>{{assigneeName}}</h2>
                     </div>
                     <div class="list-items">
                         <ol class="sortable list-group">
-                            {{#each list}}
+                            {{#each Tasks}}
                             <li class="list-group-item">
                                 <div class="md-v-line"></div>
-                                <div class="md-v-line"></div><span
-                                    class="badge list-number badge-info badge-pill mr-4">{{id}}</span>
-                                <span class="align-middle item">{{task}}</span>
+                                <div class="md-v-line"></div>
+                                <span class="align-middle item">{{this.taskName}}</span>
                                 <span class="delete-button badge float-right badge-info"><i
                                         class="fas fa-trash-alt"></i></span>
                             </li>
                             {{/each}}
-
                         </ol>
-
-                        <div id="share-button" class="text-center">
-                            <button type="button" class="btn btn-block shareButton btn-info">Share</button>
-                        </div>
-
                     </div>
                 </div>
-                <div id="share-button" class="text-center">
-                    <button type="button" class="btn shareButton btn-info">Share</button>
+                <div class="text-center">
+                    <button type="button" class="btn shareButton btn-info share-button" data-userid={{id}}>Share</button>
                 </div>
             </div>
             {{/each}}
         </div>
-    </div> --}}
+    </div>
+
 
     <!-- ---------------------------------- ADD NEW TASK MODAL ------------------------------------------------>
 
-    <div class="modal" id="create-account-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal" id="create-task-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Task</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="submit" class="close-modal" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="newUserForm" class="modal-body mx-3">
+                <form id="newTaskForm" class="modal-body mx-3">
 
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" id="selectAssignee">
                             <option>Assignee</option>
-                            <option>Michelle</option>
-                            <option>Shivali</option>
-                            <option>Josh</option>
-                            <option>Andrew</option>
-                            <option>John</option>
+                            {{#each taskiCardData}}
+                            <option value={{id}}>{{assigneeName}}</option>
+                            {{/each}}
                         </select>
                     </div>
 
@@ -157,10 +141,10 @@
                         <input class="form-control" placeholder="Task" id="taskNameSubmit"></input>
                     </div>
 
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" id="taskSubmit" class="btn btn-default">Submit</button>
+                    </div>
                 </form>
-                <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-default">Login</button>
-                </div>
             </div>
         </div>
     </div>
@@ -172,7 +156,7 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Member</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -188,15 +172,25 @@
                         <button id="newMemberSubmitButton" class="btn btn-default">Submit</button>
                     </div>
                 </form>
-                <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-default">Login</button>
-                </div>
             </div>
         </div>
     </div>
 
 
+    <!-- ---------------------------------- ADD NEW MEMBER MODAL for response code ------------------------------------------------>
 
+    <div class="modal" id="create-response-code-modal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="sign-in-text modal-title w-100 font-weight-bold">Message sent successfully!</h3>
+                    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

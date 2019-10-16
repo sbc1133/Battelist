@@ -3,6 +3,8 @@
 // ==============================================================================
 
 var db = require("../models");
+var share = require("./sample");
+
 
 // ================================================================================
 //  ROUTES
@@ -19,13 +21,15 @@ module.exports = function(app) {
       })
     
     });
+
     app.get("/api/render/assignee", function(req, res) {
       // Add sequelize code to find all tasks, and return them to the user with res.json
       db.Assignee.findAll({include:[db.Task]}).then(function(dbAssignee){
-        res.render("list",{user:dbAssignee})
+        // res.render("list",{user:dbAssignee})
+        res.json(dbAssignee)
       })
-    
     });
+
     app.get("/api/assignee/:tasks", function(req, res) {
       // Add sequelize code to find all tasks where the assignee is equal to req.params.assignee,
       // return the result to the user with res.json
@@ -37,7 +41,6 @@ module.exports = function(app) {
         res.json(dbAssignee)
       })
     });
-  
   
     app.post("/api/assignee", function(req, res) {
       // Add sequelize code for creating a task using req.body,
@@ -77,5 +80,28 @@ module.exports = function(app) {
       // req.body.id and return the result to the user using res.json
     });
     
+    app.get("/api/assignee/share/:id", function (req, res) {
+      console.log(req.params)
+      db.Assignee.findOne({
+        where: {
+          id: req.params.id
+        },
+      include:[db.Task]
+      })
+        .then(function (result) {
+          console.log(result.assigneeName)
+          var numTasks = result.Tasks.length;
+          var emailTasks = ""
+         
+          for ( let i = 0 ; i<numTasks;i++){
+            emailTasks = emailTasks+i+" : "+result.Tasks[i].taskName+"\n"
+          }
+          console.log(emailTasks) 
+          share(result.assigneeName,result.email,emailTasks).then(function(result){
+            console.log("here is code " , result)
+            res.json(result)
+          });
+        })
+    });
   };
   

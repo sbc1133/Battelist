@@ -3,7 +3,7 @@ module.exports = function sendMsg(name, email, tasks) {
     
     const nodemailer = require('nodemailer');
   
-    const userInfo = require('./assignedUser');
+    //const userInfo = require('./assignedUser');
     const { google } = require("googleapis");
     const OAuth2 = google.auth.OAuth2;
 
@@ -22,7 +22,7 @@ module.exports = function sendMsg(name, email, tasks) {
     //var client = new twilio(accountSid, authToken);
 
 
-    console.log("hello......... ", userInfo.name);
+    //console.log("hello......... ", userInfo.name);
 
     var transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -36,20 +36,12 @@ module.exports = function sendMsg(name, email, tasks) {
             accessToken: accessToken
         }
     });
-    
-    function getTask(mytask){
-        var taskStr="" ;
-        for (let i = 0; i < mytask.length; i++) {
-            taskStr = taskStr + `${mytask[i]}\n`;
-        }
-        return taskStr
-    }
 
     var emailObj = {
         from: 'shivalibhalla@gmail.com',
         to: email,
         subject: `Hello ${name},here is your task list from Battleist\n`,
-        text: getTask(tasks)
+        text: tasks
     }
 return new Promise ((resolve,reject)=>{
     var responseCode = transporter.sendMail(emailObj, function (error, info) {
