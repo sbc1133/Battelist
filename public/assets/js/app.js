@@ -80,24 +80,23 @@ $(document).ready(function () {
 
 
 
-// On click command to open workbench
+  // On click command to open workbench
 
-$("#createWorkbench").on("click", function () {
-  $("#sign-in-form-container").css("display", "none");
-  $("#main-title-page").css("display", "none");
-  $("#main-page").css("display", "flex");
-})
+  $("#createWorkbench").on("click", function () {
+    $("#sign-in-form-container").css("display", "none");
+    $("#main-title-page").css("display", "none");
+    $("#main-page").css("display", "flex");
+  })
 
-// On click command for modal form
+  // On click command for modal form
 
-$(".add-member-button").on("click", function () {
-  $("#create-member-form").css("display", "flex");
-})
+  $(".add-member-button").on("click", function () {
+    $("#create-member-form").css("display", "flex");
+  })
 
-$(".add-task-button").on("click", function () {
-  $("#create-task-form").css("display", "flex");
-})
-
+  $(".add-task-button").on("click", function () {
+    $("#create-task-form").css("display", "flex");
+  })
 
 
   // Grabbing data from new member form to add to assignee api
@@ -153,7 +152,7 @@ $(".add-task-button").on("click", function () {
         $("#main-page").css("display", "flex");
         $("#create-member-form").css("display", "flex");
         // Reload the page to get the updated list
-
+        
       }
     );
 
@@ -162,24 +161,31 @@ $(".add-task-button").on("click", function () {
 
   // Grabbing new task data to store in 
 
-  $("#newUserForm").on("submit", function (event) {
+  $("#taskSubmit").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log("works")
 
     var assignedMember = $('#selectAssignee').find(":selected").text();
+    var name = $('#selectAssignee').find(":selected").text()
 
     var newTaskInfo = {
       taskName: $("#taskNameSubmit").val().trim(),
-      assigneeName: $('#selectAssignee').find(":selected").text()
+      AssigneeId: $("#selectAssignee").val(),
+      selfAssigned: false,
+      assigneeName: name
     };
 
+    console.log(name);
+    console.log(newTaskInfo)
     // Needs to find 
-    $.ajax("/api/assignee", {
-      type: "PUT",
+    $.ajax(`/api/tasks/name/${name}`, {
+      type: "POST",
       data: newTaskInfo
     }).then(
       function () {
-        console.log("created new account");
+        console.log("created new task");
+        window.location.reload();
         // Reload the page to get the updated list
 
       }
