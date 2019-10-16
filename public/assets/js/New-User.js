@@ -7,8 +7,6 @@ $(document).ready(function() {
 
     $(document).on("submit", "#newUserForm", handleNewUserSubmit);
     
-    getUsers();
-
     function handleNewUserSubmit(event) {
         event.preventDefault();
         if (!userNameSubmit.val().trim().trim()) {
@@ -31,8 +29,9 @@ $(document).ready(function() {
         });
 
         function insertUser(data) {
-            $.post("/api/user", data)
-            .then(getUsers);
+            $.post("/api/user", data, function() {
+                console.log("Hooray< it's working!")
+            })
         }
 
     }

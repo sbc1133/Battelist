@@ -23,11 +23,16 @@ $(document).ready(function () {
   })
 
   // Reload page when modal closed
-
   $("button.close").on("click", function () {
+    location.reload();
+  })
+
+
+  //
+
+  $("button.close-modal").on("click", function () {
     $("#create-member-form").css("display", "none");
     $("#create-task-form").css("display", "none");
-    $("#create-account-form").css("display", "none");
 
   })
 
@@ -72,53 +77,7 @@ $(document).ready(function () {
     $(this).parent('.list-group-item').remove();
   });
 
-  // write code to get task list from database 
-  /*
-  function renderCard(name_query) {
-    
-    $.get("/api/user", function (data) {
-      for (let i = 0; i < data.length; i++) {
-        var mainCard = $("<div class='card task-list'>");
-        var nameCard = $("<div class='text-center card-header success-color white-text'>")
-        var name = $("<h2>");
-        name.text(data[i].username);
-        nameCard.append(name)
-        mainCard.append(nameCard)
-        var listcontainer = $("<div class='list-items'>");
-        var olcontainer = $("<ol class='sortable list-group'>");
-        var liBlock = '<li class="list-group-item">'+'<div class="md-v-line"></div>'+
-        '<div class="md-v-line"></div><span class="badge list-number badge-info badge-pill mr-4">1</span>';
-        var taskItem = $("<span class='align-middle item'>");
-        $.get("/api/tasks/:name", function (data) {
-
-        })
-        taskItem.text();
-      }
-      console.log(names)
-    })
-   
-    // create ajax request to query databse
-
-  }
-
-  function get_names_tasks(){
-    var names=[];
-    $.get("/api/user", function (data) {
-      //console.log(data);
-      //console.log(data.length)
-      for (let i = 0; i < data.length; i++) {
-        names.push(data[i].username)
-        //console.log(names)
-      }
-      console.log(names)
-    })
-    return {names,tasks};
-  }
-
-
-  get_names_tasks();
-  //Document , ready ends here 
-  */
+  
 })
 
 // On click command for modal form
@@ -128,8 +87,98 @@ $(".add-member-button").on("click", function () {
 })
 
 $(".add-task-button").on("click", function () {
-  $("#create-member-form").css("display", "flex");
+  $("#create-task-form").css("display", "flex");
 })
 
+$(document).ready(function () {
 
+  // Grabbing data from new member form to add to assignee api
+
+  $("#newMemberForm").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newUserInfo = {
+      username: $("#nameInput").val().trim(),
+      phoneNumber: $("#phoneNumberInput").val().trim(),
+      email: $("#emailInput").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/assignee", {
+      type: "POST",
+      data: newUserInfo
+    }).then(
+      function () {
+        console.log("created new user");
+        // Reload the page to get the updated list
+        $("#create-member-form").css("display", "none");
+        $("#main-page").css("display", "flex");
+
+      }
+    );
+
+    });
+
+    // Grabbing new account user data to store in 
+
+    $("#newUserForm").on("submit", function (event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+  
+      var newUserInfo = {
+        username: $("#nameInput").val().trim(),
+        phoneNumber: $("#phoneNumberInput").val().trim(),
+        email: $("#emailInput").val().trim(),
+        password: $("#passwordInput").val().trim()
+      };
+  
+      // Send the POST request.
+      $.ajax("/api/user", {
+        type: "POST",
+        data: newUserInfo
+      }).then(
+        function () {
+          console.log("created new account");
+          $("#create-account-form").css("display", "none");
+          $("#modal-background").css("display", "none");
+          $("#main-page").css("display", "flex");
+          $("#create-member-form").css("display", "flex");
+          // Reload the page to get the updated list
+  
+        }
+      );
+  
+      });
+
+
+       // Grabbing new task data to store in 
+
+    $("#newUserForm").on("submit", function (event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      var assignedMember = $('#selectAssignee').find(":selected").text();
+  
+      var newTaskInfo = {
+        taskName: $("#taskNameSubmit").val().trim(),
+        assigneeName: $('#selectAssignee').find(":selected").text()
+      };
+  
+      // Needs to find 
+      $.ajax("/api/assignee", {
+        type: "PUT",
+        data: newTaskInfo
+      }).then(
+        function () {
+          console.log("created new account");
+          // Reload the page to get the updated list
+  
+        }
+      );
+  
+      });
+
+
+  });
 
