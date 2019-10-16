@@ -103,19 +103,5 @@ module.exports = function (app) {
   //get task and email or phone of jon doe
   //
 
-  app.get("/api/share/:id", function (req, res) {
-   
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function (result) {
-        console.log(result.username)
-        share(result.username,result.email,["something"]).then(function(result){
-          console.log("here is code " , result)
-          res.json(result)
-        });
-      })
-  });
+
 };
