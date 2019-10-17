@@ -31,6 +31,17 @@ module.exports = function(app) {
     });
   
     // DELETE route for deleting user
+    app.delete("/api/user/:name", function(req, res) {
+      // Add sequelize code to delete a task where the id is equal to req.params.id, 
+      // then return the result to the user using res.json
+      db.User.destroy({
+        where: {
+          username: req.params.name
+        }
+      }).then(function(deletedData){
+        res.json(deletedData)
+      })
+    });
     app.delete("/api/user/:id", function(req, res) {
       // Add sequelize code to delete a task where the id is equal to req.params.id, 
       // then return the result to the user using res.json
