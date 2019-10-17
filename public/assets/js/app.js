@@ -151,7 +151,7 @@ $(document).ready(function () {
         $("#main-page").css("display", "flex");
         $("#create-member-form").css("display", "flex");
         // Reload the page to get the updated list
-        
+
       }
     );
 
@@ -189,27 +189,114 @@ $(document).ready(function () {
 
       }
     );
-    });
+  });
 
 
   $("button.close-modal").on("click", function () {
-    $("#create-response-code-modal").css("display","none");
+    $("#create-response-code-modal").css("display", "none");
   })
 
-    $(".share-button").on("click",function(){
-      console.log("button clicked")
-      var userid = $(this).attr("data-userid");
-      console.log("my user id is ", userid) ;
-      var query_url = "/api/assignee/share/"+userid;
-      console.log(query_url)
-      $.get(query_url,function(data){
+  $(".share-button").on("click", function () {
+    console.log("button clicked")
+    var userid = $(this).attr("data-userid");
+    console.log("my user id is ", userid);
+    var query_url = "/api/assignee/share/" + userid;
+    console.log(query_url)
+    $.get(query_url, function (data) {
       console.log(data)
-      if ( data.includes("250 2.0.0 OK")){
-        console.log("found string") 
-        $("#create-response-code-modal").css("display","flex");
+      if (data.includes("250 2.0.0 OK")) {
+        console.log("found string")
+        $("#create-response-code-modal").css("display", "flex");
       }
-      })
+    })
+  })
+
+  // JQuery for Create new user
+  $("#newMemberSubmitButton").on("click", function () {
+    event.preventDefault();
+    var name = $("#memberName").val().trim();
+    var user_email = $("#memberEmail").val().trim();
+    var phonenumber = $("#memberPhoneNumber").val().trim();
+    newUserInfo = {
+      username: $("#memberName").val().trim(),
+      phoneNumber: $("#memberPhoneNumber").val().trim(),
+      email: $("#memberEmail").val().trim(),
+      password: "password",
+    }
+    newAssigneeInfo = {
+      assigneeName: name,
+      username: name,
+      phoneNumber: phonenumber,
+      email: user_email,
+      points: 10,
+    }
+    console.log(name, user_email, phonenumber);
+    $.ajax(`/api/user/`, {
+      type: "POST",
+      data: newUserInfo
+    }).then(
+      function () {
+        console.log("created new User");
+        // window.location.reload();
+        // Reload the page to get the updated list
+      }
+    );
+    $.ajax(`/api/assignee/`, {
+      type: "POST",
+      data: newAssigneeInfo
+    }).then(
+      function () {
+        console.log("created new Assignee");
+        window.location.reload();
+        // Reload the page to get the updated list
+      }
+    );
+  })
+
+
+    // JQuery for deleting  a task
+
+    $(".delete-button").on("click",function(){
+      var taskID = $( this ).parent().attr("data-taskid");
+      console.log(taskID)
+      var query_url = `/api/tasks/`+taskID;
+      $.ajax(query_url, {
+        type: "DELETE",
+      }).then(
+        function () {
+          console.log("deleted a  task");
+          window.location.reload();
+          // Reload the page to get the updated list
+        }
+      );
     })
 
-  
-  });
+    //JQuery for deleting Assignee
+    $(".delete-assignee").on("click",function(){
+      var assigneeID = $( this ).attr("data-assigneeid");
+      var name = $(this).parent().text().trim();
+      console.log(assigneeID,name)
+      
+      var query_url = `/api/assignee/`+assigneeID;
+      $.ajax(query_url, {
+        type: "DELETE",
+      }).then(
+        function () {
+          console.log("deleted a  task");
+          //window.location.reload();
+          // Reload the page to get the updated list
+        }
+      );
+      var query_url = `/api/user/`+name;
+      $.ajax(query_url, {
+        type: "DELETE",
+      }).then(
+        function () {
+          console.log("deleted a  task");
+          window.location.reload();
+          // Reload the page to get the updated list
+        }
+      );
+      
+    })
+});
