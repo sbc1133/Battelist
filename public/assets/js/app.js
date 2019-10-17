@@ -29,8 +29,6 @@ $(document).ready(function () {
   })
 
 
-  //
-
   $("button.close-modal").on("click", function () {
     $("#create-member-form").css("display", "none");
     $("#create-task-form").css("display", "none");
@@ -83,6 +81,7 @@ $(document).ready(function () {
   // On click command to open workbench
 
   $("#createWorkbench").on("click", function () {
+    console.log("The button is being clicked");
     $("#sign-in-form-container").css("display", "none");
     $("#main-title-page").css("display", "none");
     $("#main-page").css("display", "flex");
