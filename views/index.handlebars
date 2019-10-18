@@ -1,166 +1,130 @@
-<div class="container-fluid">
-    <div class="row">
-        <div id="main-title-page" class="col-xs-12 col-s-12 col-md-12 col-lg-12 col-xl-6">
-            <div class="logo-container">
-                <span class="word word1"> BattleList </span>
-            </div>
-            <div class="word_split wrapper">
-                <span class="word word2">Keeping</span>
-                <span class="word word3">Your</span>
-                <span class="word word4">Team</span>
-                <span class="word word5">On Task</span>
-                <span class="word word6">And </span>
-                <span class="word word7">Productive</span>
-            </div>
-
-        </div>
-<!----------------------------- SIGN IN FORM ----------------------------------->
-
-        
-        <div id="sign-in-form-container" class="col-xs-0 col-s-0 col-md-0 col-lg-0 col-xl-6">
-            <form class="rounded z-depth-1 sign-in text-center border bg-white border-light p-5">
-                <h1 id="create">Create Your</h1>
-                <h1 id="your">Own BattleList</h1>
-                <button id="createWorkbench" class="btn btn-info btn-block my-4 btn-info" type="submit">Create Workbench</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!---------- Scroll Down Arrow Animation - Shown on smaller screens (600px or less)----------->
-
-<section id="scrollArrow" class="demo">
-    <a id="scroll-down" href="#sign-in-form-container"><span></span></a>
-</section>
-
-
 <!-- -----------------------------------------------------NEW ACCOUNT MODAL BACKGROUND ---------------------------------------------------------------- -->
 
 <div id="modal-background"></div>
 
 <!-- ---------------------------------------------------------- MAIN CONTENT PAGE --------------------------------------------------------------------- -->
 
-<div id="main-page">
-
-    <div class="navbar fixed-top navbar-expand-sm navbar-dark white header">
-        <div>
-            <h2 class="add-member-button"><span class="badge badge-info"><i class="fas fa-user-plus"></i></span></h2>
-        </div>
-        <div>
-            <h1 id="main-page-header">BattleList</h1>
-        </div>
-        <div>
-            <h2 class="add-task-button"><span class="badge badge-info"><i class="fas fa-edit"></i></span></h2>
-        </div>
+<div class="dark" id="main-page">
+  <div class="navbar fixed-top navbar-expand-sm navbar-dark white header">
+    <div>
+      <h2 class="add-member-button"><span class="badge badge-info"><i class="fas fa-user-plus"></i></span></h2>
     </div>
-
-    <div id="list-container" class="container-fluid">
-        <div class="row">
-            {{#each taskiCardData}}
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="card task-list">
-                    <div class="text-center card-header success-color white-text">
-                        <h2 class="assignee-name">{{assigneeName}}</h2><br><i class="fas fa-user-minus fa-xs delete-assignee" data-assigneeid={{this.id}} style="color:#33b6e5;"></i>  
-                    </div>
-                    <div class="list-items">
-                        <ol class="sortable list-group">
-                            {{#each Tasks}}
-                            <li class="list-group-item" data-taskId={{this.id}}>
-                                <div class="md-v-line"></div>
-                                <div class="md-v-line"></div>
-                                <span class="align-middle item">{{this.taskName}}</span>
-                                <span class="delete-button badge float-right badge-info"><i
-                                        class="fas fa-trash-alt"></i></span>
-                            </li>
-                            {{/each}}
-                        </ol>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <button type="button" class="btn shareButton btn-info share-button" data-userid={{id}}>Share&nbsp;&nbsp;<i class="fa fa-envelope"></i></button>
-                </div>
-            </div>
-            {{/each}}
-        </div>
+    <div>
+      <h1 id="main-page-header">BattleList</h1>
     </div>
-
-
-    <!-- ---------------------------------- ADD NEW TASK MODAL ------------------------------------------------>
-
-    <div class="modal" id="create-task-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Task</h4>
-                    <button type="submit" class="close-modal" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="newTaskForm" class="modal-body mx-3">
-
-                    <div class="form-group">
-                        <select class="form-control" id="selectAssignee">
-                            <option>Assignee</option>
-                            {{#each taskiCardData}}
-                            <option value={{id}}>{{assigneeName}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
-
-                    <div id="addNewTodo" class="form-group">
-                        <input class="form-control" placeholder="Task" id="taskNameSubmit"></input>
-                    </div>
-
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" id="taskSubmit" class="btn btn-default">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div>
+      <h2 class="add-task-button"><span class="badge badge-info"><i class="fas fa-edit"></i></span></h2>
     </div>
+  </div>
 
-    <!-- ---------------------------------- ADD NEW MEMBER MODAL ------------------------------------------------>
-
-    <div class="modal" id="create-member-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Member</h4>
-                    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="newMemberForm" class="modal-body mx-3">
-
-                    <input type="text" id="memberName" class="form-control mb-4" placeholder="Name">
-
-                    <input type="email" id="memberEmail" class="form-control mb-4" placeholder="E-mail">
-
-                    <input type="phoneNumber" id="memberPhoneNumber" class="form-control mb-4"
-                        placeholder="Phone Number">
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button id="newMemberSubmitButton" class="btn btn-default">Submit</button>
-                    </div>
-                </form>
-            </div>
+  <div id="list-container" class="container-fluid">
+    <div class="row">
+      {{#each taskiCardData}}
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card task-list">
+          <div class="text-center card-header success-color white-text">
+            <span class="assignee-name">{{assigneeName}}</span><span><i
+                class="float-right fas fa-user-minus fa-lg delete-assignee" data-assigneeid={{this.id}}
+                style="color:#33b6e5;"></i></span>
+          </div>
+          <div class="list-items">
+            <ol class="sortable list-group">
+              {{#each Tasks}}
+              <li class="list-group-item" data-taskId={{this.id}}>
+                <div class="md-v-line"></div>
+                <div class="md-v-line"></div>
+                <span class="align-middle item">{{this.taskName}}</span>
+                <span class="delete-button badge float-right badge-info"><i class="fas fa-trash-alt"></i></span>
+              </li>
+              {{/each}}
+            </ol>
+          </div>
         </div>
-    </div>
-
-
-    <!-- ---------------------------------- ADD NEW MEMBER MODAL for response code ------------------------------------------------>
-
-    <div class="modal" id="create-response-code-modal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h3 class="sign-in-text modal-title w-100 font-weight-bold">Message sent successfully!</h3>
-                    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
+        <div class="text-center">
+          <button type="button" class="btn shareButton btn-info share-button" data-userid={{id}}>Send Email&nbsp;&nbsp;<i
+              class="fa fa-envelope"></i></button>
+          <button type="button" class="btn shareButton btn-info share-button" data-userid={{id}}>Send Message&nbsp;&nbsp;<i class="far fa-comment-dots"></i></button>
         </div>
+      </div>
+      {{/each}}
     </div>
+  </div>
+
+
+  <!-- ---------------------------------- ADD NEW TASK MODAL ------------------------------------------------>
+
+  <div class="modal" id="create-task-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Task</h4>
+          <button type="submit" class="close-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="newTaskForm" class="modal-body mx-3">
+
+          <div class="form-group">
+            <select class="form-control" id="selectAssignee">
+              <option>Assignee</option>
+              {{#each taskiCardData}}
+              <option value={{id}}>{{assigneeName}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <div id="addNewTodo" class="form-group">
+            <input class="form-control" placeholder="Task" id="taskNameSubmit"></input>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" id="taskSubmit" class="btn btn-info">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------- ADD NEW MEMBER MODAL ------------------------------------------------>
+
+  <div class="modal" id="create-member-form" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="sign-in-text modal-title w-100 font-weight-bold">Add New Member</h4>
+          <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="newMemberForm" class="modal-body mx-3">
+
+          <input type="text" id="memberName" class="form-control mb-4" placeholder="Name">
+
+          <input type="email" id="memberEmail" class="form-control mb-4" placeholder="E-mail">
+
+          <input type="phoneNumber" id="memberPhoneNumber" class="form-control mb-4" placeholder="Phone Number">
+          <div class="modal-footer d-flex justify-content-center">
+            <button id="newMemberSubmitButton" class="btn btn-info">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ---------------------------------- SENT MESSAGE MODAL ------------------------------------------------>
+  <div class="modal" id="create-response-code-modal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="sent-modal-text modal-title w-100 font-weight-bold">Message sent successfully!</h4>
+          <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
