@@ -6,10 +6,6 @@ $(document).ready(function () {
   // })
 
   $("#scrollArrow").on('click', function () {
-    $("#main-title-page").hide();
-    $("#main-page").fadeIn();
-    $("#scrollArrow").hide();
-    $("#sign-in-form-container").css("display", "none");
 
   });
 
@@ -28,8 +24,6 @@ $(document).ready(function () {
     location.reload();
   })
 
-
-  //
 
   $("button.close-modal").on("click", function () {
     $("#create-member-form").css("display", "none");
@@ -82,10 +76,10 @@ $(document).ready(function () {
 
   // On click command to open workbench
 
-  $("#createWorkbench").on("click", function () {
-    $("#sign-in-form-container").css("display", "none");
-    $("#main-title-page").css("display", "none");
-    $("#main-page").css("display", "flex");
+  $("#createWorkbench").on("click", function (event) {
+    event.preventDefault();
+    console.log("The button is being clicked");
+
   })
 
   // On click command for modal form
@@ -158,7 +152,6 @@ $(document).ready(function () {
 
   });
 
-
   // Grabbing new task data to store in 
 
   $("#taskSubmit").on("click", function (event) {
@@ -192,7 +185,6 @@ $(document).ready(function () {
     );
   });
 
-
   $("button.close-modal").on("click", function () {
     $("#create-response-code-modal").css("display", "none");
   })
@@ -213,6 +205,7 @@ $(document).ready(function () {
   })
 
   // JQuery for Create new user
+
   $("#newMemberSubmitButton").on("click", function () {
     event.preventDefault();
     var name = $("#memberName").val().trim();
@@ -238,8 +231,7 @@ $(document).ready(function () {
     }).then(
       function () {
         console.log("created new User");
-        // window.location.reload();
-        // Reload the page to get the updated list
+        window.location.reload();
       }
     );
     $.ajax(`/api/assignee/`, {
@@ -249,55 +241,54 @@ $(document).ready(function () {
       function () {
         console.log("created new Assignee");
         window.location.reload();
-        // Reload the page to get the updated list
       }
     );
   })
 
 
-    // JQuery for deleting  a task
+  // JQuery for deleting  a task
 
-    $(".delete-button").on("click",function(){
-      var taskID = $( this ).parent().attr("data-taskid");
-      console.log(taskID)
-      var query_url = `/api/tasks/`+taskID;
-      $.ajax(query_url, {
-        type: "DELETE",
-      }).then(
-        function () {
-          console.log("deleted a  task");
-          window.location.reload();
-          // Reload the page to get the updated list
-        }
-      );
-    })
+  $(".delete-button").on("click", function () {
+    var taskID = $(this).parent().attr("data-taskid");
+    console.log(taskID)
+    var query_url = `/api/tasks/` + taskID;
+    $.ajax(query_url, {
+      type: "DELETE",
+    }).then(
+      function () {
+        console.log("deleted a  task");
+        window.location.reload();
+      }
+    );
+  })
 
-    //JQuery for deleting Assignee
-    $(".delete-assignee").on("click",function(){
-      var assigneeID = $( this ).attr("data-assigneeid");
-      var name = $(this).parent().text().trim();
-      console.log(assigneeID,name)
-      
-      var query_url = `/api/assignee/`+assigneeID;
-      $.ajax(query_url, {
-        type: "DELETE",
-      }).then(
-        function () {
-          console.log("deleted a  task");
-          //window.location.reload();
-          // Reload the page to get the updated list
-        }
-      );
-      var query_url = `/api/user/`+name;
-      $.ajax(query_url, {
-        type: "DELETE",
-      }).then(
-        function () {
-          console.log("deleted a  task");
-          window.location.reload();
-          // Reload the page to get the updated list
-        }
-      );
-      
-    })
+  //JQuery for deleting Assignee
+
+  $(".delete-assignee").on("click", function () {
+    var assigneeID = $(this).attr("data-assigneeid");
+    var name = $(this).parent().text().trim();
+    console.log(assigneeID, name)
+
+    var query_url = `/api/assignee/` + assigneeID;
+    $.ajax(query_url, {
+      type: "DELETE",
+    }).then(
+      function () {
+        console.log("deleted a  task");
+        window.location.reload();
+      }
+    );
+    var query_url = `/api/user/` + name;
+    $.ajax(query_url, {
+      type: "DELETE",
+    }).then(
+      function () {
+        console.log("deleted a  task");
+        window.location.reload();
+      }
+    );
+
+  })
+
+  
 });
