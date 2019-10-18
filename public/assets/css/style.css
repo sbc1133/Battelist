@@ -231,9 +231,11 @@
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+
 #mobile-share-button {
     display: none;
 }
+
 #desktop-share-button {
     display: block;
 }
